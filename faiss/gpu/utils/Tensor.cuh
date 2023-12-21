@@ -368,6 +368,9 @@ class Tensor {
     __host__ __device__ Tensor<T, NewDim, InnerContig, IndexT, PtrTraits> view(
             std::initializer_list<IndexT> sizes);
 
+    /// hacking to avoid msvc compiler failure of "expected an expression"
+    __host__ __device__ Tensor<T, 2, InnerContig, IndexT, PtrTraits> view2(IndexT s1, IndexT s2);
+
    protected:
     /// Raw pointer to where the tensor data begins
     DataPtrType data_;

@@ -14,6 +14,7 @@ project(faiss
 include(GNUInstallDirs)
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 

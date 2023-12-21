@@ -538,9 +538,10 @@ void runPQCodeDistancesMM(
 
         // View output as (q * c)(sub q * code), and add centroid norm to
         // each row
-        auto outDistancesCodeViewCols = outCodeDistancesView.view<2>(
-                {coarseIndices.getSize(0) * coarseIndices.getSize(1),
-                 outCodeDistances.getSize(2) * outCodeDistances.getSize(3)});
+        auto outDistancesCodeViewCols = outCodeDistancesView.view2(
+                coarseIndices.getSize(0) * coarseIndices.getSize(1),
+                 outCodeDistances.getSize(2) * outCodeDistances.getSize(3)
+				 );
 
         runSumAlongColumns(pqCentroidsNorm, outDistancesCodeViewCols, stream);
     } else {

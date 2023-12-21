@@ -1048,5 +1048,25 @@ __host__ __device__ Tensor<T, NewDim, InnerContig, IndexT, PtrTraits> Tensor<
     return Tensor<T, NewDim, true, IndexT, PtrTraits>(data(), sizes);
 }
 
+/// hacking to avoid msvc compiler failure of "expected an expression"
+template <
+        typename T,
+        int Dim,
+        bool InnerContig,
+        typename IndexT,
+        template <typename U>
+        class PtrTraits>
+__host__ __device__ Tensor<T, 2, InnerContig, IndexT, PtrTraits> Tensor<
+        T,
+        Dim,
+        InnerContig,
+        IndexT,
+        PtrTraits>::view2(IndexT s1, IndexT s2) {
+    GPU_FAISS_ASSERT(this->isContiguous());
+    size_t curSize = numElements();
+    GPU_FAISS_ASSERT(curSize == s1 * s2);
+    return Tensor<T, 2, true, IndexT, PtrTraits>(data(), {s1, s2});
+}
+
 } // namespace gpu
 } // namespace faiss
