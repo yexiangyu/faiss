@@ -32,14 +32,14 @@
         </inbodydescription>
         <location file="faiss/utils/hamming_distance/hamdis-inl.h" line="35" column="5" bodyfile="faiss/utils/hamming_distance/hamdis-inl.h" bodystart="35" bodyend="36"/>
       </memberdef>
-      <memberdef kind="function" id="structfaiss_1_1HammingComputerDefault_1a2738b8c53224a9d51df060d8efd062c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structfaiss_1_1HammingComputerDefault_1a3a15c465bd3c6f1101a5ea465fd6de18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void faiss::HammingComputerDefault::set</definition>
-        <argsstring>(const uint8_t *a8, int code_size)</argsstring>
+        <argsstring>(const uint8_t *a8_2, int code_size)</argsstring>
         <name>set</name>
         <param>
           <type>const uint8_t *</type>
-          <declname>a8</declname>
+          <declname>a8_2</declname>
         </param>
         <param>
           <type>int</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/utils/hamming_distance/generic-inl.h" line="260" column="10" bodyfile="faiss/utils/hamming_distance/generic-inl.h" bodystart="260" bodyend="264"/>
+        <location file="faiss/utils/hamming_distance/generic-inl.h" line="263" column="10" bodyfile="faiss/utils/hamming_distance/generic-inl.h" bodystart="263" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1HammingComputerDefault_1aa114eb107f8cce136689b50d8dffafd1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/utils/hamming_distance/generic-inl.h" line="266" column="9" bodyfile="faiss/utils/hamming_distance/generic-inl.h" bodystart="266" bodyend="325"/>
+        <location file="faiss/utils/hamming_distance/generic-inl.h" line="269" column="9" bodyfile="faiss/utils/hamming_distance/generic-inl.h" bodystart="269" bodyend="343"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1HammingComputerDefault_1afbb41349cd834644fb6a239b2ee53cca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/utils/hamming_distance/generic-inl.h" line="327" column="16" bodyfile="faiss/utils/hamming_distance/generic-inl.h" bodystart="327" bodyend="329"/>
+        <location file="faiss/utils/hamming_distance/generic-inl.h" line="345" column="16" bodyfile="faiss/utils/hamming_distance/generic-inl.h" bodystart="345" bodyend="347"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -218,7 +218,7 @@
       <member refid="structfaiss_1_1HammingComputerDefault_1a811e3f5db91b6a5f6eba731e514910fa" prot="public" virt="non-virtual"><scope>faiss::HammingComputer</scope><name>HammingComputerDefault</name></member>
       <member refid="structfaiss_1_1HammingComputerDefault_1a690b6cdae0726c448e6da15ca03817bd" prot="public" virt="non-virtual"><scope>faiss::HammingComputer</scope><name>quotient8</name></member>
       <member refid="structfaiss_1_1HammingComputerDefault_1a2653ab8230299d8f03f33c202a349850" prot="public" virt="non-virtual"><scope>faiss::HammingComputer</scope><name>remainder8</name></member>
-      <member refid="structfaiss_1_1HammingComputerDefault_1a2738b8c53224a9d51df060d8efd062c8" prot="public" virt="non-virtual"><scope>faiss::HammingComputer</scope><name>set</name></member>
+      <member refid="structfaiss_1_1HammingComputerDefault_1a3a15c465bd3c6f1101a5ea465fd6de18" prot="public" virt="non-virtual"><scope>faiss::HammingComputer</scope><name>set</name></member>
       <member refid="structfaiss_1_1HammingComputerDefault_1a2738b8c53224a9d51df060d8efd062c8" prot="public" virt="non-virtual"><scope>faiss::HammingComputer</scope><name>set</name></member>
     </listofallmembers>
   </compounddef>

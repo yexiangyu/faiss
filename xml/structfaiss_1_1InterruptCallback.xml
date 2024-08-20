@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="structfaiss_1_1InterruptCallback" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>faiss::InterruptCallback</compoundname>
+    <derivedcompoundref refid="structfaiss_1_1TimeoutCallback" prot="public" virt="non-virtual">faiss::TimeoutCallback</derivedcompoundref>
       <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="structfaiss_1_1InterruptCallback_1a2b7c49b103b71e89086cbb1a0a30a6eb" prot="public" static="yes" mutable="no">
         <type>std::mutex</type>
@@ -14,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AuxIndexStructures.h" line="141" column="23" bodyfile="faiss/impl/AuxIndexStructures.h" bodystart="141" bodyend="-1"/>
+        <location file="faiss/impl/AuxIndexStructures.h" line="140" column="23" bodyfile="faiss/impl/AuxIndexStructures.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structfaiss_1_1InterruptCallback_1acf135176cd744921e4981390c6a7a929" prot="public" static="yes" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structfaiss_1_1InterruptCallback" kindref="compound">InterruptCallback</ref> &gt;</type>
@@ -27,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AuxIndexStructures.h" line="143" column="28" bodyfile="faiss/impl/AuxIndexStructures.h" bodystart="143" bodyend="-1"/>
+        <location file="faiss/impl/AuxIndexStructures.h" line="142" column="28" bodyfile="faiss/impl/AuxIndexStructures.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -36,13 +37,14 @@
         <definition>virtual bool faiss::InterruptCallback::want_interrupt</definition>
         <argsstring>()=0</argsstring>
         <name>want_interrupt</name>
+        <reimplementedby refid="structfaiss_1_1TimeoutCallback_1a23002f252121513f76d66c31a1ad6102">want_interrupt</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AuxIndexStructures.h" line="137" column="18"/>
+        <location file="faiss/impl/AuxIndexStructures.h" line="136" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1InterruptCallback_1a1a769b856f1219696ffca215dddca755" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type></type>
@@ -55,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AuxIndexStructures.h" line="138" column="13" bodyfile="faiss/impl/AuxIndexStructures.h" bodystart="138" bodyend="138"/>
+        <location file="faiss/impl/AuxIndexStructures.h" line="137" column="13" bodyfile="faiss/impl/AuxIndexStructures.h" bodystart="137" bodyend="137"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -70,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AuxIndexStructures.h" line="145" column="17"/>
+        <location file="faiss/impl/AuxIndexStructures.h" line="144" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1InterruptCallback_1a0b71f32f4503e74a0907badffd9964f2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -88,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AuxIndexStructures.h" line="153" column="17"/>
+        <location file="faiss/impl/AuxIndexStructures.h" line="152" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1InterruptCallback_1abb97e38ad1cdef1f908b0bfa86c3f68d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -102,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AuxIndexStructures.h" line="157" column="17"/>
+        <location file="faiss/impl/AuxIndexStructures.h" line="156" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structfaiss_1_1InterruptCallback_1a38a05519f9953b0ebb3e20fb9eff79a5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -120,14 +122,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/AuxIndexStructures.h" line="162" column="19"/>
+        <location file="faiss/impl/AuxIndexStructures.h" line="161" column="19"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="faiss/impl/AuxIndexStructures.h" line="136" column="1" bodyfile="faiss/impl/AuxIndexStructures.h" bodystart="136" bodyend="163"/>
+    <inheritancegraph>
+      <node id="2">
+        <label>faiss::TimeoutCallback</label>
+        <link refid="structfaiss_1_1TimeoutCallback"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>faiss::InterruptCallback</label>
+        <link refid="structfaiss_1_1InterruptCallback"/>
+      </node>
+    </inheritancegraph>
+    <location file="faiss/impl/AuxIndexStructures.h" line="135" column="1" bodyfile="faiss/impl/AuxIndexStructures.h" bodystart="135" bodyend="162"/>
     <listofallmembers>
       <member refid="structfaiss_1_1InterruptCallback_1a0b71f32f4503e74a0907badffd9964f2" prot="public" virt="non-virtual"><scope>faiss::InterruptCallback</scope><name>check</name></member>
       <member refid="structfaiss_1_1InterruptCallback_1a9a881ae6d76470f2f801013b694a4569" prot="public" virt="non-virtual"><scope>faiss::InterruptCallback</scope><name>clear_instance</name></member>

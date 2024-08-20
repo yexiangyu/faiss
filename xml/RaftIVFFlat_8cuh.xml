@@ -31,16 +31,15 @@
 <codeline></codeline>
 <codeline><highlight class="normal">#pragma<sp/>once</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">#include<sp/>&lt;faiss/gpu/impl/GpuScalarQuantizer.cuh&gt;</highlight></codeline>
-<codeline><highlight class="normal">#include<sp/>&lt;faiss/gpu/impl/IVFBase.cuh&gt;</highlight></codeline>
-<codeline><highlight class="normal">#include<sp/>&lt;faiss/gpu/impl/IVFFlat.cuh&gt;</highlight></codeline>
-<codeline></codeline>
 <codeline><highlight class="normal">#include<sp/>&lt;faiss/impl/CodePacker.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;faiss/gpu/impl/GpuScalarQuantizer.cuh&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;faiss/gpu/impl/IVFFlat.cuh&gt;</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">#include<sp/>&lt;raft/neighbors/ivf_flat.cuh&gt;</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">#include<sp/>&lt;optional&gt;</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">#pragma<sp/>GCC<sp/>visibility<sp/>push(default)</highlight></codeline>
 <codeline><highlight class="normal">namespace<sp/>faiss<sp/>{</highlight></codeline>
 <codeline><highlight class="normal">namespace<sp/>gpu<sp/>{</highlight></codeline>
 <codeline></codeline>
@@ -60,6 +59,9 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MemorySpace<sp/>space);</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>~RaftIVFFlat()<sp/>override;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Reserve<sp/>GPU<sp/>memory<sp/>in<sp/>our<sp/>inverted<sp/>lists<sp/>for<sp/>this<sp/>number<sp/>of<sp/>vectors</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>reserveMemory(idx_t<sp/>numVecs)<sp/>override;</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Find<sp/>the<sp/>approximate<sp/>k<sp/>nearest<sp/>neigbors<sp/>for<sp/>`queries`<sp/>against</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>our<sp/>database</highlight></codeline>
@@ -92,11 +94,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tensor&lt;float,<sp/>2,<sp/>true&gt;&amp;<sp/>vecs,</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tensor&lt;idx_t,<sp/>1,<sp/>true&gt;&amp;<sp/>indices)<sp/>override;</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Reserve<sp/>GPU<sp/>memory<sp/>in<sp/>our<sp/>inverted<sp/>lists<sp/>for<sp/>this<sp/>number<sp/>of<sp/>vectors</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/><sp/><sp/><sp/><sp/>void<sp/>reserveMemory(idx_t<sp/>numVecs)<sp/>override;</highlight></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Clear<sp/>out<sp/>all<sp/>inverted<sp/>lists,<sp/>but<sp/>retain<sp/>the<sp/>coarse<sp/>quantizer</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>and<sp/>the<sp/>product<sp/>quantizer<sp/>info</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Clear<sp/>out<sp/>the<sp/>Raft<sp/>index</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>reset()<sp/>override;</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>For<sp/>debugging<sp/>purposes,<sp/>return<sp/>the<sp/>list<sp/>length<sp/>of<sp/>a<sp/>particular</highlight></codeline>
@@ -110,15 +108,17 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/>getListVectorData(idx_t<sp/>listId,<sp/>bool<sp/>gpuFormat)</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>override;</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Update<sp/>our<sp/>Raft<sp/>index<sp/>with<sp/>this<sp/>quantizer<sp/>instance;<sp/>may<sp/>be<sp/>a<sp/>CPU</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>or<sp/>GPU<sp/>quantizer</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>updateQuantizer(Index*<sp/>quantizer)<sp/>override;</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Copy<sp/>all<sp/>inverted<sp/>lists<sp/>from<sp/>a<sp/>CPU<sp/>representation<sp/>to<sp/>ourselves</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>copyInvertedListsFrom(const<sp/>InvertedLists*<sp/>ivf)<sp/>override;</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Filter<sp/>out<sp/>matrix<sp/>rows<sp/>containing<sp/>NaN<sp/>values</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>validRowIndices_(Tensor&lt;float,<sp/>2,<sp/>true&gt;&amp;<sp/>vecs,<sp/>bool*<sp/>nan_flag);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Replace<sp/>the<sp/>Raft<sp/>index</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>setRaftIndex(raft::neighbors::ivf_flat::index&lt;float,<sp/>idx_t&gt;&amp;&amp;<sp/>idx);</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/>protected:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>private:</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>Adds<sp/>a<sp/>set<sp/>of<sp/>codes<sp/>and<sp/>indices<sp/>to<sp/>a<sp/>list,<sp/>with<sp/>the<sp/>representation</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>///<sp/>coming<sp/>from<sp/>the<sp/>CPU<sp/>equivalent</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>addEncodedVectorsToList_(</highlight></codeline>
@@ -156,6 +156,7 @@
 <codeline></codeline>
 <codeline><highlight class="normal">}<sp/>//<sp/>namespace<sp/>gpu</highlight></codeline>
 <codeline><highlight class="normal">}<sp/>//<sp/>namespace<sp/>faiss</highlight></codeline>
+<codeline><highlight class="normal">#pragma<sp/>GCC<sp/>visibility<sp/>pop</highlight></codeline>
     </programlisting>
     <location file="faiss/gpu/impl/RaftIVFFlat.cuh"/>
   </compounddef>
