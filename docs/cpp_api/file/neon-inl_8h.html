@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>File neon-inl.h &mdash; Faiss  documentation</title>
@@ -92,6 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="GpuFaissAssert_8h.html">File GpuFaissAssert.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIcmEncoder_8h.html">File GpuIcmEncoder.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIndexBinaryFlat_8h.html">File GpuIndexBinaryFlat.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GpuIndexCagra_8h.html">File GpuIndexCagra.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIndexFlat_8h.html">File GpuIndexFlat.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIndexIVFFlat_8h.html">File GpuIndexIVFFlat.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIndexIVFPQ_8h.html">File GpuIndexIVFPQ.h</a></li>
@@ -144,6 +145,7 @@
 <li class="toctree-l2"><a class="reference internal" href="IndexLattice_8h.html">File IndexLattice.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexNNDescent_8h.html">File IndexNNDescent.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexNSG_8h.html">File IndexNSG.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IndexNeuralNetCodec_8h.html">File IndexNeuralNetCodec.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexPQFastScan_8h.html">File IndexPQFastScan.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexPQ_8h.html">File IndexPQ.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexPreTransform_8h.html">File IndexPreTransform.h</a></li>
@@ -182,6 +184,7 @@
 <li class="toctree-l2"><a class="reference internal" href="MinMaxFP16-inl_8h.html">File MinMaxFP16-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NNDescent_8h.html">File NNDescent.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NSG_8h.html">File NSG.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuralNet_8h.html">File NeuralNet.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NoTypeTensor_8cuh.html">File NoTypeTensor.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OnDiskInvertedLists_8h.html">File OnDiskInvertedLists.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PQ-avx2-inl_8h.html">File PQ-avx2-inl.h</a></li>
@@ -200,8 +203,10 @@
 <li class="toctree-l2"><a class="reference internal" href="ProductQuantizer_8h.html">File ProductQuantizer.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PtxUtils_8cuh.html">File PtxUtils.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Quantizer_8h.html">File Quantizer.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RaftCagra_8cuh.html">File RaftCagra.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftFlatIndex_8cuh.html">File RaftFlatIndex.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftIVFFlat_8cuh.html">File RaftIVFFlat.cuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RaftIVFPQ_8cuh.html">File RaftIVFPQ.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftUtils_8h.html">File RaftUtils.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ReductionOperators_8cuh.html">File ReductionOperators.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Reductions_8cuh.html">File Reductions.cuh</a></li>
@@ -234,6 +239,7 @@
 <li class="toctree-l2"><a class="reference internal" href="approx__topk_8h.html">File approx_topk.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="approx__topk__hamming_8h.html">File approx_topk_hamming.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="avx512_8h.html">File avx512.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bf16_8h.html">File bf16.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clone__index_8h.html">File clone_index.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code__distance-avx2_8h.html">File code_distance-avx2.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code__distance-generic_8h.html">File code_distance-generic.h</a></li>
@@ -244,6 +250,7 @@
 <li class="toctree-l2"><a class="reference internal" href="distances__fused_8h.html">File distances_fused.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra__distances-inl_8h.html">File extra_distances-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra__distances_8h.html">File extra_distances.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp16-arm_8h.html">File fp16-arm.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16-fp16c_8h.html">File fp16-fp16c.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16-inl_8h.html">File fp16-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16_8h.html">File fp16.h</a></li>
@@ -273,9 +280,11 @@
 <li class="toctree-l2"><a class="reference internal" href="simd__result__handlers_8h.html">File simd_result_handlers.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib_8h.html">File simdlib.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__avx2_8h.html">File simdlib_avx2.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simdlib__avx512_8h.html">File simdlib_avx512.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__based_8h.html">File simdlib_based.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__emulated_8h.html">File simdlib_emulated.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__neon_8h.html">File simdlib_neon.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simdlib__ppc64_8h.html">File simdlib_ppc64.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sorting_8h.html">File sorting.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transpose-avx2-inl_8h.html">File transpose-avx2-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils_8h.html">File utils.h</a></li>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>File io.h &mdash; Faiss  documentation</title>
@@ -92,6 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="GpuFaissAssert_8h.html">File GpuFaissAssert.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIcmEncoder_8h.html">File GpuIcmEncoder.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIndexBinaryFlat_8h.html">File GpuIndexBinaryFlat.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GpuIndexCagra_8h.html">File GpuIndexCagra.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIndexFlat_8h.html">File GpuIndexFlat.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIndexIVFFlat_8h.html">File GpuIndexIVFFlat.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GpuIndexIVFPQ_8h.html">File GpuIndexIVFPQ.h</a></li>
@@ -144,6 +145,7 @@
 <li class="toctree-l2"><a class="reference internal" href="IndexLattice_8h.html">File IndexLattice.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexNNDescent_8h.html">File IndexNNDescent.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexNSG_8h.html">File IndexNSG.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IndexNeuralNetCodec_8h.html">File IndexNeuralNetCodec.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexPQFastScan_8h.html">File IndexPQFastScan.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexPQ_8h.html">File IndexPQ.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IndexPreTransform_8h.html">File IndexPreTransform.h</a></li>
@@ -182,6 +184,7 @@
 <li class="toctree-l2"><a class="reference internal" href="MinMaxFP16-inl_8h.html">File MinMaxFP16-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NNDescent_8h.html">File NNDescent.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NSG_8h.html">File NSG.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NeuralNet_8h.html">File NeuralNet.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="NoTypeTensor_8cuh.html">File NoTypeTensor.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OnDiskInvertedLists_8h.html">File OnDiskInvertedLists.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PQ-avx2-inl_8h.html">File PQ-avx2-inl.h</a></li>
@@ -200,8 +203,10 @@
 <li class="toctree-l2"><a class="reference internal" href="ProductQuantizer_8h.html">File ProductQuantizer.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PtxUtils_8cuh.html">File PtxUtils.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Quantizer_8h.html">File Quantizer.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RaftCagra_8cuh.html">File RaftCagra.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftFlatIndex_8cuh.html">File RaftFlatIndex.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftIVFFlat_8cuh.html">File RaftIVFFlat.cuh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RaftIVFPQ_8cuh.html">File RaftIVFPQ.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RaftUtils_8h.html">File RaftUtils.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ReductionOperators_8cuh.html">File ReductionOperators.cuh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Reductions_8cuh.html">File Reductions.cuh</a></li>
@@ -234,6 +239,7 @@
 <li class="toctree-l2"><a class="reference internal" href="approx__topk_8h.html">File approx_topk.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="approx__topk__hamming_8h.html">File approx_topk_hamming.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="avx512_8h.html">File avx512.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bf16_8h.html">File bf16.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clone__index_8h.html">File clone_index.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code__distance-avx2_8h.html">File code_distance-avx2.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="code__distance-generic_8h.html">File code_distance-generic.h</a></li>
@@ -244,6 +250,7 @@
 <li class="toctree-l2"><a class="reference internal" href="distances__fused_8h.html">File distances_fused.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra__distances-inl_8h.html">File extra_distances-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra__distances_8h.html">File extra_distances.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp16-arm_8h.html">File fp16-arm.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16-fp16c_8h.html">File fp16-fp16c.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16-inl_8h.html">File fp16-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fp16_8h.html">File fp16.h</a></li>
@@ -273,9 +280,11 @@
 <li class="toctree-l2"><a class="reference internal" href="simd__result__handlers_8h.html">File simd_result_handlers.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib_8h.html">File simdlib.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__avx2_8h.html">File simdlib_avx2.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simdlib__avx512_8h.html">File simdlib_avx512.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__based_8h.html">File simdlib_based.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__emulated_8h.html">File simdlib_emulated.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simdlib__neon_8h.html">File simdlib_neon.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simdlib__ppc64_8h.html">File simdlib_ppc64.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sorting_8h.html">File sorting.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transpose-avx2-inl_8h.html">File transpose-avx2-inl.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils_8h.html">File utils.h</a></li>
@@ -327,11 +336,6 @@
 <p>The implementation of these functions is spread over 3 cpp files to reduce parallel compile times. Templates are instantiated explicitly.</p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. This file contains callbacks for kernels that compute distances.</p>
-<p>The SIMDResultHandler object is intended to be templated and inlined. Methods:<ul class="simple">
-<li><p>handle(): called when 32 distances are computed and provided in two <a class="reference internal" href="../struct/structfaiss_1_1simd16uint16.html#structfaiss_1_1simd16uint16"><span class="std std-ref">simd16uint16</span></a>. (q, b) indicate which entry it is in the block.</p></li>
-<li><p>set_block_origin(): set the sub-matrix that is being computed</p></li>
-</ul>
-</p>
 <p>Throughout the library, vectors are provided as float * pointers. Most algorithms can be optimized when several vectors are processed (added/searched) together in a batch. In this case, they are passed in as a matrix. When n vectors of size d are provided as float * x, component j of vector i is</p>
 <p>x[ i * d + j ]</p>
 <p>where 0 &lt;= i &lt; n and 0 &lt;= j &lt; d. In other words, matrices are always compact. When specifying the size of the matrix, we call it an n*d matrix, which implies a row-major storage.</p>
@@ -344,6 +348,8 @@
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Since IVF (inverted file) indexes are of so much use for large-scale use cases, we group a few functions related to them in this small library. Most functions work both on IndexIVFs and IndexIVFs embedded within an <a class="reference internal" href="../struct/structfaiss_1_1IndexPreTransform.html#structfaiss_1_1IndexPreTransform"><span class="std std-ref">IndexPreTransform</span></a>.</p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. In this file are the implementations of extra metrics beyond L2 and inner product</p>
+<p>Copyright (c) Facebook, Inc. and its affiliates.</p>
+<p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Implements a few neural net layers, mainly to support <a class="reference internal" href="../struct/structfaiss_1_1QINCo.html#structfaiss_1_1QINCo"><span class="std std-ref">QINCo</span></a></p>
 <p>Copyright (c) Facebook, Inc. and its affiliates.</p>
 <p>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Defines a few objects that apply transformations to a set of vectors Often these are pre-processing steps. </p>
 <div class="breathe-sectiondef docutils container">
@@ -387,8 +393,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss8IOReader6filenoEv">
-<span id="_CPPv3N5faiss8IOReader6filenoEv"></span><span id="_CPPv2N5faiss8IOReader6filenoEv"></span><span id="faiss::IOReader::fileno"></span><span class="target" id="structfaiss_1_1IOReader_1a6890eedef4aa5a67e84bdda5279ce372"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fileno</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss8IOReader6filenoEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss8IOReader14filedescriptorEv">
+<span id="_CPPv3N5faiss8IOReader14filedescriptorEv"></span><span id="_CPPv2N5faiss8IOReader14filedescriptorEv"></span><span id="faiss::IOReader::filedescriptor"></span><span class="target" id="structfaiss_1_1IOReader_1a91eec3e578f8477753a2bf3e493e5df6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filedescriptor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss8IOReader14filedescriptorEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -419,8 +425,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss8IOWriter6filenoEv">
-<span id="_CPPv3N5faiss8IOWriter6filenoEv"></span><span id="_CPPv2N5faiss8IOWriter6filenoEv"></span><span id="faiss::IOWriter::fileno"></span><span class="target" id="structfaiss_1_1IOWriter_1a160d24a6d658b0650cc2e710e116447f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fileno</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss8IOWriter6filenoEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss8IOWriter14filedescriptorEv">
+<span id="_CPPv3N5faiss8IOWriter14filedescriptorEv"></span><span id="_CPPv2N5faiss8IOWriter14filedescriptorEv"></span><span id="faiss::IOWriter::filedescriptor"></span><span class="target" id="structfaiss_1_1IOWriter_1a5df4dc0988a10e2a8e914e789b12f5b0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filedescriptor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss8IOWriter14filedescriptorEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -450,8 +456,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss14VectorIOReader6filenoEv">
-<span id="_CPPv3N5faiss14VectorIOReader6filenoEv"></span><span id="_CPPv2N5faiss14VectorIOReader6filenoEv"></span><span id="faiss::VectorIOReader::fileno"></span><span class="target" id="structfaiss_1_1IOReader_1a6890eedef4aa5a67e84bdda5279ce372"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fileno</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss14VectorIOReader6filenoEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss14VectorIOReader14filedescriptorEv">
+<span id="_CPPv3N5faiss14VectorIOReader14filedescriptorEv"></span><span id="_CPPv2N5faiss14VectorIOReader14filedescriptorEv"></span><span id="faiss::VectorIOReader::filedescriptor"></span><span class="target" id="structfaiss_1_1IOReader_1a91eec3e578f8477753a2bf3e493e5df6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filedescriptor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss14VectorIOReader14filedescriptorEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -486,8 +492,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss14VectorIOWriter6filenoEv">
-<span id="_CPPv3N5faiss14VectorIOWriter6filenoEv"></span><span id="_CPPv2N5faiss14VectorIOWriter6filenoEv"></span><span id="faiss::VectorIOWriter::fileno"></span><span class="target" id="structfaiss_1_1IOWriter_1a160d24a6d658b0650cc2e710e116447f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fileno</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss14VectorIOWriter6filenoEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss14VectorIOWriter14filedescriptorEv">
+<span id="_CPPv3N5faiss14VectorIOWriter14filedescriptorEv"></span><span id="_CPPv2N5faiss14VectorIOWriter14filedescriptorEv"></span><span id="faiss::VectorIOWriter::filedescriptor"></span><span class="target" id="structfaiss_1_1IOWriter_1a5df4dc0988a10e2a8e914e789b12f5b0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filedescriptor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss14VectorIOWriter14filedescriptorEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -532,8 +538,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss12FileIOReader6filenoEv">
-<span id="_CPPv3N5faiss12FileIOReader6filenoEv"></span><span id="_CPPv2N5faiss12FileIOReader6filenoEv"></span><span id="faiss::FileIOReader::fileno"></span><span class="target" id="structfaiss_1_1FileIOReader_1aa8e9ff5e954992f963fa6876d682d4f4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fileno</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N5faiss12FileIOReader6filenoEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss12FileIOReader14filedescriptorEv">
+<span id="_CPPv3N5faiss12FileIOReader14filedescriptorEv"></span><span id="_CPPv2N5faiss12FileIOReader14filedescriptorEv"></span><span id="faiss::FileIOReader::filedescriptor"></span><span class="target" id="structfaiss_1_1FileIOReader_1aebd8ec08fe7dc8d92dc62a11a6ef7b53"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filedescriptor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N5faiss12FileIOReader14filedescriptorEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -583,8 +589,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss12FileIOWriter6filenoEv">
-<span id="_CPPv3N5faiss12FileIOWriter6filenoEv"></span><span id="_CPPv2N5faiss12FileIOWriter6filenoEv"></span><span id="faiss::FileIOWriter::fileno"></span><span class="target" id="structfaiss_1_1FileIOWriter_1a9ca557aca4570b5e2c722250160727dd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fileno</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N5faiss12FileIOWriter6filenoEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss12FileIOWriter14filedescriptorEv">
+<span id="_CPPv3N5faiss12FileIOWriter14filedescriptorEv"></span><span id="_CPPv2N5faiss12FileIOWriter14filedescriptorEv"></span><span id="faiss::FileIOWriter::filedescriptor"></span><span class="target" id="structfaiss_1_1FileIOWriter_1af2af08b67cbe1dc170869a0d25438e06"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filedescriptor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N5faiss12FileIOWriter14filedescriptorEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -632,8 +638,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss16BufferedIOReader6filenoEv">
-<span id="_CPPv3N5faiss16BufferedIOReader6filenoEv"></span><span id="_CPPv2N5faiss16BufferedIOReader6filenoEv"></span><span id="faiss::BufferedIOReader::fileno"></span><span class="target" id="structfaiss_1_1IOReader_1a6890eedef4aa5a67e84bdda5279ce372"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fileno</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss16BufferedIOReader6filenoEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss16BufferedIOReader14filedescriptorEv">
+<span id="_CPPv3N5faiss16BufferedIOReader14filedescriptorEv"></span><span id="_CPPv2N5faiss16BufferedIOReader14filedescriptorEv"></span><span id="faiss::BufferedIOReader::filedescriptor"></span><span class="target" id="structfaiss_1_1IOReader_1a91eec3e578f8477753a2bf3e493e5df6"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filedescriptor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss16BufferedIOReader14filedescriptorEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -706,8 +712,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N5faiss16BufferedIOWriter6filenoEv">
-<span id="_CPPv3N5faiss16BufferedIOWriter6filenoEv"></span><span id="_CPPv2N5faiss16BufferedIOWriter6filenoEv"></span><span id="faiss::BufferedIOWriter::fileno"></span><span class="target" id="structfaiss_1_1IOWriter_1a160d24a6d658b0650cc2e710e116447f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fileno</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss16BufferedIOWriter6filenoEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N5faiss16BufferedIOWriter14filedescriptorEv">
+<span id="_CPPv3N5faiss16BufferedIOWriter14filedescriptorEv"></span><span id="_CPPv2N5faiss16BufferedIOWriter14filedescriptorEv"></span><span id="faiss::BufferedIOWriter::filedescriptor"></span><span class="target" id="structfaiss_1_1IOWriter_1a5df4dc0988a10e2a8e914e789b12f5b0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">filedescriptor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N5faiss16BufferedIOWriter14filedescriptorEv" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </div>
