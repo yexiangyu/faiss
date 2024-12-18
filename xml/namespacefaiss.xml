@@ -274,7 +274,6 @@
     <innernamespace refid="namespacefaiss_1_1nn">faiss::nn</innernamespace>
     <innernamespace refid="namespacefaiss_1_1nndescent">faiss::nndescent</innernamespace>
     <innernamespace refid="namespacefaiss_1_1nsg">faiss::nsg</innernamespace>
-    <innernamespace refid="namespacefaiss_1_1perf__tests">faiss::perf_tests</innernamespace>
     <innernamespace refid="namespacefaiss_1_1quantize__lut">faiss::quantize_lut</innernamespace>
     <innernamespace refid="namespacefaiss_1_1rq__encode__steps">faiss::rq_encode_steps</innernamespace>
     <innernamespace refid="namespacefaiss_1_1simd__result__handlers">faiss::simd_result_handlers</innernamespace>
@@ -394,7 +393,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexIDMap.h" line="70" column="1" bodyfile="faiss/IndexIDMap.h" bodystart="70" bodyend="-1"/>
+        <location file="faiss/IndexIDMap.h" line="73" column="1" bodyfile="faiss/IndexIDMap.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacefaiss_1a0fcd5b438dc8ed29fe802c9f86b5ed03" prot="public" static="no">
         <type><ref refid="structfaiss_1_1IndexIDMapTemplate" kindref="compound">IndexIDMapTemplate</ref>&lt; <ref refid="structfaiss_1_1IndexBinary" kindref="compound">IndexBinary</ref> &gt;</type>
@@ -407,7 +406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexIDMap.h" line="71" column="1" bodyfile="faiss/IndexIDMap.h" bodystart="71" bodyend="-1"/>
+        <location file="faiss/IndexIDMap.h" line="74" column="1" bodyfile="faiss/IndexIDMap.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacefaiss_1aa08ba3d567937ac89a8a7e96ede18bc2" prot="public" static="no">
         <type><ref refid="structfaiss_1_1IndexIDMap2Template" kindref="compound">IndexIDMap2Template</ref>&lt; <ref refid="structfaiss_1_1Index" kindref="compound">Index</ref> &gt;</type>
@@ -420,7 +419,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexIDMap.h" line="103" column="1" bodyfile="faiss/IndexIDMap.h" bodystart="103" bodyend="-1"/>
+        <location file="faiss/IndexIDMap.h" line="106" column="1" bodyfile="faiss/IndexIDMap.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacefaiss_1abb449fb7eb62ff35c48165c965621d10" prot="public" static="no">
         <type><ref refid="structfaiss_1_1IndexIDMap2Template" kindref="compound">IndexIDMap2Template</ref>&lt; <ref refid="structfaiss_1_1IndexBinary" kindref="compound">IndexBinary</ref> &gt;</type>
@@ -433,7 +432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexIDMap.h" line="104" column="1" bodyfile="faiss/IndexIDMap.h" bodystart="104" bodyend="-1"/>
+        <location file="faiss/IndexIDMap.h" line="107" column="1" bodyfile="faiss/IndexIDMap.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacefaiss_1a0423615e86d00dda03ae73c199c705af" prot="public" static="no">
         <type><ref refid="structfaiss_1_1SearchParametersIVF" kindref="compound">SearchParametersIVF</ref></type>
@@ -796,7 +795,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexIVF.h" line="531" column="23" declfile="faiss/IndexIVF.h" declline="531" declcolumn="23"/>
+        <location file="faiss/IndexIVF.h" line="532" column="23" declfile="faiss/IndexIVF.h" declline="532" declcolumn="23"/>
       </memberdef>
       <memberdef kind="variable" id="namespacefaiss_1a28374b20fb3fd40e3abc21c78135c3a7" prot="public" static="no" mutable="no">
         <type>FAISS_API <ref refid="structfaiss_1_1IndexIVFStats" kindref="compound">IndexIVFStats</ref></type>
@@ -809,7 +808,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/IndexIVF.h" line="549" column="32" declfile="faiss/IndexIVF.h" declline="549" declcolumn="32"/>
+        <location file="faiss/IndexIVF.h" line="550" column="32" declfile="faiss/IndexIVF.h" declline="550" declcolumn="32"/>
       </memberdef>
       <memberdef kind="variable" id="namespacefaiss_1a3aebb977a33e268e5eddf7ad361598f9" prot="public" static="no" mutable="no">
         <type>FAISS_API <ref refid="structfaiss_1_1IVFFastScanStats" kindref="compound">IVFFastScanStats</ref></type>
@@ -1150,6 +1149,40 @@
         </inbodydescription>
         <location file="faiss/Clustering.h" line="204" column="7" declfile="faiss/Clustering.h" declline="204" declcolumn="7"/>
       </memberdef>
+      <memberdef kind="function" id="namespacefaiss_1ab75a481411f1b880ec2f41c8685682c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string faiss::reverse_index_factory</definition>
+        <argsstring>(const faiss::Index *index)</argsstring>
+        <name>reverse_index_factory</name>
+        <param>
+          <type>const <ref refid="structfaiss_1_1Index" kindref="compound">faiss::Index</ref> *</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="faiss/cppcontrib/factory_tools.h" line="26" column="13" declfile="faiss/cppcontrib/factory_tools.h" declline="26" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefaiss_1ab296cc828e119931af0b6bb2daf3ebfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string faiss::reverse_index_factory</definition>
+        <argsstring>(const faiss::IndexBinary *index)</argsstring>
+        <name>reverse_index_factory</name>
+        <param>
+          <type>const <ref refid="structfaiss_1_1IndexBinary" kindref="compound">faiss::IndexBinary</ref> *</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="faiss/cppcontrib/factory_tools.h" line="27" column="13" declfile="faiss/cppcontrib/factory_tools.h" declline="27" declcolumn="13"/>
+      </memberdef>
       <memberdef kind="function" id="namespacefaiss_1a9ea277840d6448e42b304287257de0b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -1280,7 +1313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/code_distance/code_distance.h" line="87" column="14" bodyfile="faiss/impl/code_distance/code_distance.h" bodystart="87" bodyend="97"/>
+        <location file="faiss/impl/code_distance/code_distance.h" line="140" column="14" bodyfile="faiss/impl/code_distance/code_distance.h" bodystart="140" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="namespacefaiss_1a7912d9fa6a0a7ab8356eef44ecab64c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1342,7 +1375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/code_distance/code_distance.h" line="100" column="13" bodyfile="faiss/impl/code_distance/code_distance.h" bodystart="100" bodyend="129"/>
+        <location file="faiss/impl/code_distance/code_distance.h" line="153" column="13" bodyfile="faiss/impl/code_distance/code_distance.h" bodystart="153" bodyend="182"/>
       </memberdef>
       <memberdef kind="function" id="namespacefaiss_1a542cf4d499962a3d7a0db924424d8870" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1360,7 +1393,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/FaissException.h" line="41" column="6" declfile="faiss/impl/FaissException.h" declline="41" declcolumn="6"/>
+        <location file="faiss/impl/FaissException.h" line="40" column="6" declfile="faiss/impl/FaissException.h" declline="40" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespacefaiss_1a0dbf4403e68d46d45d8432b99657ffd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -1378,7 +1411,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="faiss/impl/FaissException.h" line="62" column="13" declfile="faiss/impl/FaissException.h" declline="62" declcolumn="13"/>
+        <location file="faiss/impl/FaissException.h" line="61" column="13" declfile="faiss/impl/FaissException.h" declline="61" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="namespacefaiss_1a6f2f483b00cb60d4860f1d3ff7107b8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1500,6 +1533,52 @@
         <inbodydescription>
         </inbodydescription>
         <location file="faiss/impl/HNSW.h" line="276" column="21" declfile="faiss/impl/HNSW.h" declline="276" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefaiss_1ad97c6c4a248bc0ac4399e4f0eea2ff99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void faiss::search_neighbors_to_add</definition>
+        <argsstring>(HNSW &amp;hnsw, DistanceComputer &amp;qdis, std::priority_queue&lt; HNSW::NodeDistCloser &gt; &amp;results, int entry_point, float d_entry_point, int level, VisitedTable &amp;vt, bool reference_version=false)</argsstring>
+        <name>search_neighbors_to_add</name>
+        <param>
+          <type><ref refid="structfaiss_1_1HNSW" kindref="compound">HNSW</ref> &amp;</type>
+          <declname>hnsw</declname>
+        </param>
+        <param>
+          <type><ref refid="structfaiss_1_1DistanceComputer" kindref="compound">DistanceComputer</ref> &amp;</type>
+          <declname>qdis</declname>
+        </param>
+        <param>
+          <type>std::priority_queue&lt; <ref refid="structfaiss_1_1HNSW_1_1NodeDistCloser" kindref="compound">HNSW::NodeDistCloser</ref> &gt; &amp;</type>
+          <declname>results</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>entry_point</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>d_entry_point</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type><ref refid="structfaiss_1_1VisitedTable" kindref="compound">VisitedTable</ref> &amp;</type>
+          <declname>vt</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>reference_version</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="faiss/impl/HNSW.h" line="284" column="6" declfile="faiss/impl/HNSW.h" declline="284" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespacefaiss_1a33f83fe5af91626556b1ccde1f3cafcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -5597,7 +5676,7 @@
 <parametername>c</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>restult table, size n </para>
+<para>result table, size n </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -10384,34 +10463,24 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>Implementation of k-means clustering with many variants.</para>
 <para>Copyright (c) Facebook, Inc. and its affiliates.</para>
 <para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Implementation of k-means clustering with many variants.</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. <ref refid="structfaiss_1_1IDSelector" kindref="compound">IDSelector</ref> is intended to define a subset of vectors to handle (for removal or as subset to search)</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. PQ4 SIMD packing and accumulation functions</para>
+<para><ref refid="structfaiss_1_1IDSelector" kindref="compound">IDSelector</ref> is intended to define a subset of vectors to handle (for removal or as subset to search)</para>
+<para>PQ4 SIMD packing and accumulation functions</para>
 <para>The basic kernel accumulates nq query vectors with bbs = nb * 2 * 16 vectors and produces an output matrix for that. It is interesting for nq * nb &lt;= 4, otherwise register spilling becomes too large.</para>
 <para>The implementation of these functions is spread over 3 cpp files to reduce parallel compile times. Templates are instantiated explicitly.</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. This file contains callbacks for kernels that compute distances.</para>
+<para>This file contains callbacks for kernels that compute distances.</para>
 <para>Throughout the library, vectors are provided as float * pointers. Most algorithms can be optimized when several vectors are processed (added/searched) together in a batch. In this case, they are passed in as a matrix. When n vectors of size d are provided as float * x, component j of vector i is</para>
 <para>x[ i * d + j ]</para>
 <para>where 0 &lt;= i &lt; n and 0 &lt;= j &lt; d. In other words, matrices are always compact. When specifying the size of the matrix, we call it an n*d matrix, which implies a row-major storage.</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. I/O functions can read/write to a filename, a file handle or to an object that abstracts the medium.</para>
+<para>I/O functions can read/write to a filename, a file handle or to an object that abstracts the medium.</para>
 <para>The read functions return objects that should be deallocated with delete. All references within these objectes are owned by the object.</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Definition of inverted lists + a few common classes that implement the interface.</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Since IVF (inverted file) indexes are of so much use for large-scale use cases, we group a few functions related to them in this small library. Most functions work both on IndexIVFs and IndexIVFs embedded within an <ref refid="structfaiss_1_1IndexPreTransform" kindref="compound">IndexPreTransform</ref>.</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. In this file are the implementations of extra metrics beyond L2 and inner product</para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Implements a few neural net layers, mainly to support <ref refid="structfaiss_1_1QINCo" kindref="compound">QINCo</ref></para>
-<para>Copyright (c) Facebook, Inc. and its affiliates.</para>
-<para>This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree. Defines a few objects that apply transformations to a set of vectors Often these are pre-processing steps. </para>
+<para>Definition of inverted lists + a few common classes that implement the interface.</para>
+<para>Since IVF (inverted file) indexes are of so much use for large-scale use cases, we group a few functions related to them in this small library. Most functions work both on IndexIVFs and IndexIVFs embedded within an <ref refid="structfaiss_1_1IndexPreTransform" kindref="compound">IndexPreTransform</ref>.</para>
+<para>In this file are the implementations of extra metrics beyond L2 and inner product</para>
+<para>Implements a few neural net layers, mainly to support <ref refid="structfaiss_1_1QINCo" kindref="compound">QINCo</ref></para>
+<para>Defines a few objects that apply transformations to a set of vectors Often these are pre-processing steps. </para>
     </detaileddescription>
     <location file="faiss/AutoTune.h" line="19" column="1"/>
   </compounddef>

@@ -7,8 +7,8 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline><highlight class="normal">/**</highlight></codeline>
-<codeline><highlight class="normal"><sp/>*<sp/>Copyright<sp/>(c)<sp/>Facebook,<sp/>Inc.<sp/>and<sp/>its<sp/>affiliates.</highlight></codeline>
+<codeline><highlight class="normal">/*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Copyright<sp/>(c)<sp/>Meta<sp/>Platforms,<sp/>Inc.<sp/>and<sp/>affiliates.</highlight></codeline>
 <codeline><highlight class="normal"><sp/>*</highlight></codeline>
 <codeline><highlight class="normal"><sp/>*<sp/>This<sp/>source<sp/>code<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>MIT<sp/>license<sp/>found<sp/>in<sp/>the</highlight></codeline>
 <codeline><highlight class="normal"><sp/>*<sp/>LICENSE<sp/>file<sp/>in<sp/>the<sp/>root<sp/>directory<sp/>of<sp/>this<sp/>source<sp/>tree.</highlight></codeline>
@@ -30,6 +30,7 @@
 <codeline><highlight class="normal">struct<sp/>GetCudaType;</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">#ifdef<sp/>USE_AMD_ROCM</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">template<sp/>&lt;&gt;</highlight></codeline>
 <codeline><highlight class="normal">struct<sp/>GetCudaType&lt;float&gt;<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>constexpr<sp/>hipblasDatatype_t<sp/>Type<sp/>=<sp/>HIPBLAS_R_32F;</highlight></codeline>
@@ -39,7 +40,14 @@
 <codeline><highlight class="normal">struct<sp/>GetCudaType&lt;half&gt;<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>constexpr<sp/>hipblasDatatype_t<sp/>Type<sp/>=<sp/>HIPBLAS_R_16F;</highlight></codeline>
 <codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">template<sp/>&lt;&gt;</highlight></codeline>
+<codeline><highlight class="normal">struct<sp/>GetCudaType&lt;__hip_bfloat16&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>constexpr<sp/>hipblasDatatype_t<sp/>Type<sp/>=<sp/>HIPBLAS_R_16B;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">#else</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">template<sp/>&lt;&gt;</highlight></codeline>
 <codeline><highlight class="normal">struct<sp/>GetCudaType&lt;float&gt;<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>constexpr<sp/>cudaDataType_t<sp/>Type<sp/>=<sp/>CUDA_R_32F;</highlight></codeline>
@@ -49,6 +57,12 @@
 <codeline><highlight class="normal">struct<sp/>GetCudaType&lt;half&gt;<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>constexpr<sp/>cudaDataType_t<sp/>Type<sp/>=<sp/>CUDA_R_16F;</highlight></codeline>
 <codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">template<sp/>&lt;&gt;</highlight></codeline>
+<codeline><highlight class="normal">struct<sp/>GetCudaType&lt;__nv_bfloat16&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>constexpr<sp/>cudaDataType_t<sp/>Type<sp/>=<sp/>CUDA_R_16BF;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">#endif</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">template<sp/>&lt;typename<sp/>AT,<sp/>typename<sp/>BT&gt;</highlight></codeline>

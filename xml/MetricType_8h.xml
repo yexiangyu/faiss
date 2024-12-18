@@ -3,7 +3,7 @@
   <compounddef id="MetricType_8h" kind="file" language="C++">
     <compoundname>MetricType.h</compoundname>
     <includes refid="platform__macros_8h" local="no">faiss/impl/platform_macros.h</includes>
-    <includedby refid="RaftUtils_8h" local="no">faiss/gpu/utils/RaftUtils.h</includedby>
+    <includedby refid="CuvsUtils_8h" local="no">faiss/gpu/utils/CuvsUtils.h</includedby>
     <includedby refid="AuxIndexStructures_8h" local="no">faiss/impl/AuxIndexStructures.h</includedby>
     <includedby refid="CodePacker_8h" local="no">faiss/impl/CodePacker.h</includedby>
     <includedby refid="IDSelector_8h" local="no">faiss/impl/IDSelector.h</includedby>
@@ -172,10 +172,14 @@
       <node id="90">
         <label>faiss/IndexPreTransform.h</label>
         <link refid="IndexPreTransform_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="73">
         <label>faiss/IndexBinaryHNSW.h</label>
         <link refid="IndexBinaryHNSW_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="45">
         <label>faiss/Clustering.h</label>
@@ -288,12 +292,16 @@
       <node id="20">
         <label>faiss/IndexIDMap.h</label>
         <link refid="IndexIDMap_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
         <childnode refid="21" relation="include">
         </childnode>
       </node>
       <node id="15">
         <label>faiss/IndexHNSW.h</label>
         <link refid="IndexHNSW_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="37">
         <label>faiss/IndexIVFSpectralHash.h</label>
@@ -314,6 +322,10 @@
         </childnode>
         <childnode refid="29" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>faiss/gpu/utils/CuvsUtils.h</label>
+        <link refid="CuvsUtils_8h_source"/>
       </node>
       <node id="82">
         <label>faiss/gpu/perf/IndexWrapper.h</label>
@@ -336,6 +348,8 @@
       <node id="33">
         <label>faiss/IndexIVFFlat.h</label>
         <link refid="IndexIVFFlat_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="39">
         <label>faiss/invlists/OnDiskInvertedLists.h</label>
@@ -388,6 +402,8 @@
       <node id="28">
         <label>faiss/IndexBinaryIVF.h</label>
         <link refid="IndexBinaryIVF_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="26">
         <label>faiss/impl/index_read_utils.h</label>
@@ -420,14 +436,12 @@
       <node id="50">
         <label>faiss/IndexPQFastScan.h</label>
         <link refid="IndexPQFastScan_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="34">
         <label>faiss/IndexIVFIndependentQuantizer.h</label>
         <link refid="IndexIVFIndependentQuantizer_8h_source"/>
-      </node>
-      <node id="2">
-        <label>faiss/gpu/utils/RaftUtils.h</label>
-        <link refid="RaftUtils_8h_source"/>
       </node>
       <node id="41">
         <label>faiss/python/python_callbacks.h</label>
@@ -462,6 +476,8 @@
       <node id="32">
         <label>faiss/IndexIVFPQFastScan.h</label>
         <link refid="IndexIVFPQFastScan_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="51">
         <label>faiss/impl/ResidualQuantizer.h</label>
@@ -519,8 +535,6 @@
         <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="12">
@@ -611,10 +625,6 @@
         <childnode refid="94" relation="include">
         </childnode>
       </node>
-      <node id="16">
-        <label>faiss/perf_tests/utils.h</label>
-        <link refid="perf__tests_2utils_8h_source"/>
-      </node>
       <node id="89">
         <label>faiss/IndexFastScan.h</label>
         <link refid="IndexFastScan_8h_source"/>
@@ -644,6 +654,10 @@
       <node id="46">
         <label>faiss/gpu/GpuCloner.h</label>
         <link refid="GpuCloner_8h_source"/>
+      </node>
+      <node id="16">
+        <label>faiss/cppcontrib/factory_tools.h</label>
+        <link refid="factory__tools_8h_source"/>
       </node>
       <node id="1">
         <label>faiss/MetricType.h</label>
@@ -688,6 +702,8 @@
       <node id="91">
         <label>faiss/IndexRefine.h</label>
         <link refid="IndexRefine_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="56">
         <label>faiss/gpu/GpuIndex.h</label>
@@ -716,6 +732,8 @@
       <node id="70">
         <label>faiss/IndexLSH.h</label>
         <link refid="IndexLSH_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
       <node id="80">
         <label>faiss/impl/ThreadedIndex.h</label>
@@ -728,6 +746,8 @@
       <node id="86">
         <label>faiss/IndexBinaryFlat.h</label>
         <link refid="IndexBinaryFlat_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
         <childnode refid="57" relation="include">
         </childnode>
         <childnode refid="87" relation="include">
@@ -796,8 +816,8 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>Facebook,<sp/>Inc.<sp/>and<sp/>its<sp/>affiliates.</highlight></codeline>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>Meta<sp/>Platforms,<sp/>Inc.<sp/>and<sp/>affiliates.</highlight></codeline>
 <codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="4"><highlight class="comment"><sp/>*<sp/>This<sp/>source<sp/>code<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>MIT<sp/>license<sp/>found<sp/>in<sp/>the</highlight></codeline>
 <codeline lineno="5"><highlight class="comment"><sp/>*<sp/>LICENSE<sp/>file<sp/>in<sp/>the<sp/>root<sp/>directory<sp/>of<sp/>this<sp/>source<sp/>tree.</highlight></codeline>

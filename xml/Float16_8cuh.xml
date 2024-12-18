@@ -7,8 +7,8 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline><highlight class="normal">/**</highlight></codeline>
-<codeline><highlight class="normal"><sp/>*<sp/>Copyright<sp/>(c)<sp/>Facebook,<sp/>Inc.<sp/>and<sp/>its<sp/>affiliates.</highlight></codeline>
+<codeline><highlight class="normal">/*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Copyright<sp/>(c)<sp/>Meta<sp/>Platforms,<sp/>Inc.<sp/>and<sp/>affiliates.</highlight></codeline>
 <codeline><highlight class="normal"><sp/>*</highlight></codeline>
 <codeline><highlight class="normal"><sp/>*<sp/>This<sp/>source<sp/>code<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>MIT<sp/>license<sp/>found<sp/>in<sp/>the</highlight></codeline>
 <codeline><highlight class="normal"><sp/>*<sp/>LICENSE<sp/>file<sp/>in<sp/>the<sp/>root<sp/>directory<sp/>of<sp/>this<sp/>source<sp/>tree.</highlight></codeline>
@@ -21,11 +21,22 @@
 <codeline><highlight class="normal">#include<sp/>&lt;faiss/gpu/utils/DeviceUtils.h&gt;</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">//<sp/>Some<sp/>compute<sp/>capabilities<sp/>have<sp/>full<sp/>float16<sp/>ALUs.</highlight></codeline>
-<codeline><highlight class="normal">#if<sp/>__CUDA_ARCH__<sp/>&gt;=<sp/>530<sp/>||<sp/>defined(USE_AMD_ROCM)</highlight></codeline>
+<codeline><highlight class="normal">#if<sp/>__CUDA_ARCH__<sp/>&gt;=<sp/>530</highlight></codeline>
 <codeline><highlight class="normal">#define<sp/>FAISS_USE_FULL_FLOAT16<sp/>1</highlight></codeline>
 <codeline><highlight class="normal">#endif<sp/>//<sp/>__CUDA_ARCH__<sp/>types</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Some<sp/>compute<sp/>capabilities<sp/>have<sp/>full<sp/>bfloat16<sp/>ALUs.</highlight></codeline>
+<codeline><highlight class="normal">#if<sp/>__CUDA_ARCH__<sp/>&gt;=<sp/>800<sp/>||<sp/>defined(USE_AMD_ROCM)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>FAISS_USE_FULL_BFLOAT16<sp/>1</highlight></codeline>
+<codeline><highlight class="normal">#endif<sp/>//<sp/>__CUDA_ARCH__<sp/>types</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#if<sp/>!defined(USE_AMD_ROCM)</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;cuda_bf16.h&gt;</highlight></codeline>
 <codeline><highlight class="normal">#include<sp/>&lt;cuda_fp16.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#else</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;hip/hip_bf16.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;hip/hip_fp16.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#endif<sp/>//<sp/>!defined(USE_AMD_ROCM)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">namespace<sp/>faiss<sp/>{</highlight></codeline>
 <codeline><highlight class="normal">namespace<sp/>gpu<sp/>{</highlight></codeline>
