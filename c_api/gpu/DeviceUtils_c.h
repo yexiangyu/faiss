@@ -19,17 +19,17 @@ extern "C" {
 #endif
 
 /// Returns the number of available GPU devices
-int faiss_get_num_gpus(int* p_output);
+FAISS_C_API int faiss_get_num_gpus(int* p_output);
 
 /// Starts the CUDA profiler (exposed via SWIG)
-int faiss_gpu_profiler_start();
+FAISS_C_API int faiss_gpu_profiler_start();
 
 /// Stops the CUDA profiler (exposed via SWIG)
-int faiss_gpu_profiler_stop();
+FAISS_C_API int faiss_gpu_profiler_stop();
 
 /// Synchronizes the CPU against all devices (equivalent to
 /// cudaDeviceSynchronize for each device)
-int faiss_gpu_sync_all_devices();
+FAISS_C_API int faiss_gpu_sync_all_devices();
 
 #ifdef __cplusplus
 }

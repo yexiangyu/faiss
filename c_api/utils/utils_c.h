@@ -12,12 +12,13 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include "../faiss_c.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-const char* faiss_get_version();
+FAISS_C_API const char* faiss_get_version();
 
 #ifdef __cplusplus
 }

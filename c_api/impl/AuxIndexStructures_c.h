@@ -21,16 +21,16 @@ FAISS_DECLARE_CLASS(RangeSearchResult)
 
 FAISS_DECLARE_GETTER(RangeSearchResult, size_t, nq)
 
-int faiss_RangeSearchResult_new(FaissRangeSearchResult** p_rsr, idx_t nq);
+FAISS_C_API int faiss_RangeSearchResult_new(FaissRangeSearchResult** p_rsr, idx_t nq);
 
-int faiss_RangeSearchResult_new_with(
+FAISS_C_API int faiss_RangeSearchResult_new_with(
         FaissRangeSearchResult** p_rsr,
         idx_t nq,
         int alloc_lims);
 
 /// called when lims contains the nb of elements result entries
 /// for each query
-int faiss_RangeSearchResult_do_allocation(FaissRangeSearchResult* rsr);
+FAISS_C_API int faiss_RangeSearchResult_do_allocation(FaissRangeSearchResult* rsr);
 
 FAISS_DECLARE_DESTRUCTOR(RangeSearchResult)
 
@@ -38,11 +38,11 @@ FAISS_DECLARE_DESTRUCTOR(RangeSearchResult)
 FAISS_DECLARE_GETTER(RangeSearchResult, size_t, buffer_size)
 
 /// getter for lims: size (nq + 1)
-void faiss_RangeSearchResult_lims(FaissRangeSearchResult* rsr, size_t** lims);
+FAISS_C_API void faiss_RangeSearchResult_lims(FaissRangeSearchResult* rsr, size_t** lims);
 
 /// getter for labels and respective distances (not sorted):
 /// result for query i is labels[lims[i]:lims[i+1]]
-void faiss_RangeSearchResult_labels(
+FAISS_C_API void faiss_RangeSearchResult_labels(
         FaissRangeSearchResult* rsr,
         idx_t** labels,
         float** distances);
@@ -51,7 +51,7 @@ void faiss_RangeSearchResult_labels(
 FAISS_DECLARE_CLASS(IDSelector)
 FAISS_DECLARE_DESTRUCTOR(IDSelector)
 
-int faiss_IDSelector_is_member(const FaissIDSelector* sel, idx_t id);
+FAISS_C_API int faiss_IDSelector_is_member(const FaissIDSelector* sel, idx_t id);
 
 /** remove ids between [imni, imax) */
 FAISS_DECLARE_CLASS(IDSelectorRange)
@@ -60,7 +60,7 @@ FAISS_DECLARE_DESTRUCTOR(IDSelectorRange)
 FAISS_DECLARE_GETTER(IDSelectorRange, idx_t, imin)
 FAISS_DECLARE_GETTER(IDSelectorRange, idx_t, imax)
 
-int faiss_IDSelectorRange_new(
+FAISS_C_API int faiss_IDSelectorRange_new(
         FaissIDSelectorRange** p_sel,
         idx_t imin,
         idx_t imax);
@@ -76,7 +76,7 @@ FAISS_DECLARE_CLASS(IDSelectorBatch)
 FAISS_DECLARE_GETTER(IDSelectorBatch, int, nbits)
 FAISS_DECLARE_GETTER(IDSelectorBatch, idx_t, mask)
 
-int faiss_IDSelectorBatch_new(
+FAISS_C_API int faiss_IDSelectorBatch_new(
         FaissIDSelectorBatch** p_sel,
         size_t n,
         const idx_t* indices);
@@ -87,30 +87,30 @@ FAISS_DECLARE_DESTRUCTOR(IDSelectorBitmap)
 FAISS_DECLARE_GETTER(IDSelectorBitmap, size_t, n)
 FAISS_DECLARE_GETTER(IDSelectorBitmap, const uint8_t*, bitmap)
 
-int faiss_IDSelectorBitmap_new(
+FAISS_C_API int faiss_IDSelectorBitmap_new(
         FaissIDSelectorBitmap** p_sel,
         size_t n,
         const uint8_t* bitmap);
 
 FAISS_DECLARE_CLASS(IDSelectorNot)
-int faiss_IDSelectorNot_new(
+FAISS_C_API int faiss_IDSelectorNot_new(
         FaissIDSelectorNot** p_sel,
         const FaissIDSelector* sel);
 
 FAISS_DECLARE_CLASS(IDSelectorAnd)
-int faiss_IDSelectorAnd_new(
+FAISS_C_API int faiss_IDSelectorAnd_new(
         FaissIDSelectorAnd** p_sel,
         const FaissIDSelector* lhs_sel,
         const FaissIDSelector* rhs_sel);
 
 FAISS_DECLARE_CLASS(IDSelectorOr)
-int faiss_IDSelectorOr_new(
+FAISS_C_API int faiss_IDSelectorOr_new(
         FaissIDSelectorOr** p_sel,
         const FaissIDSelector* lhs_sel,
         const FaissIDSelector* rhs_sel);
 
 FAISS_DECLARE_CLASS(IDSelectorXOr)
-int faiss_IDSelectorXOr_new(
+FAISS_C_API int faiss_IDSelectorXOr_new(
         FaissIDSelectorXOr** p_sel,
         const FaissIDSelector* lhs_sel,
         const FaissIDSelector* rhs_sel);
@@ -130,15 +130,15 @@ typedef struct FaissBuffer {
     float* dis;
 } FaissBuffer;
 
-int faiss_BufferList_append_buffer(FaissBufferList* bl);
+FAISS_C_API int faiss_BufferList_append_buffer(FaissBufferList* bl);
 
-int faiss_BufferList_new(FaissBufferList** p_bl, size_t buffer_size);
+FAISS_C_API int faiss_BufferList_new(FaissBufferList** p_bl, size_t buffer_size);
 
-int faiss_BufferList_add(FaissBufferList* bl, idx_t id, float dis);
+FAISS_C_API int faiss_BufferList_add(FaissBufferList* bl, idx_t id, float dis);
 
 /// copy elements ofs:ofs+n-1 seen as linear data in the buffers to
 /// tables dest_ids, dest_dis
-int faiss_BufferList_copy_range(
+FAISS_C_API int faiss_BufferList_copy_range(
         FaissBufferList* bl,
         size_t ofs,
         size_t n,
@@ -154,39 +154,39 @@ FAISS_DECLARE_GETTER(RangeQueryResult, idx_t, qno)
 FAISS_DECLARE_GETTER(RangeQueryResult, size_t, nres)
 FAISS_DECLARE_GETTER(RangeQueryResult, FaissRangeSearchPartialResult*, pres)
 
-int faiss_RangeQueryResult_add(FaissRangeQueryResult* qr, float dis, idx_t id);
+FAISS_C_API int faiss_RangeQueryResult_add(FaissRangeQueryResult* qr, float dis, idx_t id);
 
 FAISS_DECLARE_GETTER(RangeSearchPartialResult, FaissRangeSearchResult*, res)
 
-int faiss_RangeSearchPartialResult_new(
+FAISS_C_API int faiss_RangeSearchPartialResult_new(
         FaissRangeSearchPartialResult** p_res,
         FaissRangeSearchResult* res_in);
 
-int faiss_RangeSearchPartialResult_finalize(FaissRangeSearchPartialResult* res);
+FAISS_C_API int faiss_RangeSearchPartialResult_finalize(FaissRangeSearchPartialResult* res);
 
 /// called by range_search before do_allocation
-int faiss_RangeSearchPartialResult_set_lims(FaissRangeSearchPartialResult* res);
+FAISS_C_API int faiss_RangeSearchPartialResult_set_lims(FaissRangeSearchPartialResult* res);
 
-int faiss_RangeSearchPartialResult_new_result(
+FAISS_C_API int faiss_RangeSearchPartialResult_new_result(
         FaissRangeSearchPartialResult* res,
         idx_t qno,
         FaissRangeQueryResult** qr);
 
 FAISS_DECLARE_CLASS(DistanceComputer)
 /// called before computing distances
-int faiss_DistanceComputer_set_query(FaissDistanceComputer* dc, const float* x);
+FAISS_C_API int faiss_DistanceComputer_set_query(FaissDistanceComputer* dc, const float* x);
 
 /**
  * Compute distance of vector i to current query.
  * This function corresponds to the function call operator:
  * DistanceComputer::operator()
  */
-int faiss_DistanceComputer_vector_to_query_dis(
+FAISS_C_API int faiss_DistanceComputer_vector_to_query_dis(
         FaissDistanceComputer* dc,
         idx_t i,
         float* qd);
 /// compute distance between two stored vectors
-int faiss_DistanceComputer_symmetric_dis(
+FAISS_C_API int faiss_DistanceComputer_symmetric_dis(
         FaissDistanceComputer* dc,
         idx_t i,
         idx_t j,

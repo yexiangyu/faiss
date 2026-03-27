@@ -33,14 +33,14 @@ FAISS_DECLARE_DESTRUCTOR(IOWriter)
 FAISS_DECLARE_CLASS(CustomIOReader)
 FAISS_DECLARE_DESTRUCTOR(CustomIOReader)
 
-int faiss_CustomIOReader_new(
+FAISS_C_API int faiss_CustomIOReader_new(
         FaissCustomIOReader** p_out,
         size_t (*func_in)(void* ptr, size_t size, size_t nitems));
 
 FAISS_DECLARE_CLASS(CustomIOWriter)
 FAISS_DECLARE_DESTRUCTOR(CustomIOWriter)
 
-int faiss_CustomIOWriter_new(
+FAISS_C_API int faiss_CustomIOWriter_new(
         FaissCustomIOWriter** p_out,
         size_t (*func_in)(const void* ptr, size_t size, size_t nitems));
 

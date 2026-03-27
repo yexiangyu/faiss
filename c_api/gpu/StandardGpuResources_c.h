@@ -25,33 +25,33 @@ FAISS_DECLARE_CLASS_INHERITED(StandardGpuResources, GpuResourcesProvider)
 FAISS_DECLARE_DESTRUCTOR(StandardGpuResources)
 
 /// Default constructor for StandardGpuResources
-int faiss_StandardGpuResources_new(FaissStandardGpuResources**);
+FAISS_C_API int faiss_StandardGpuResources_new(FaissStandardGpuResources**);
 
 /// Disable allocation of temporary memory; all temporary memory
 /// requests will call cudaMalloc / cudaFree at the point of use
-int faiss_StandardGpuResources_noTempMemory(FaissStandardGpuResources*);
+FAISS_C_API int faiss_StandardGpuResources_noTempMemory(FaissStandardGpuResources*);
 
 /// Specify that we wish to use a certain fixed size of memory on
 /// all devices as temporary memory
-int faiss_StandardGpuResources_setTempMemory(
+FAISS_C_API int faiss_StandardGpuResources_setTempMemory(
         FaissStandardGpuResources*,
         size_t size);
 
 /// Set amount of pinned memory to allocate, for async GPU <-> CPU
 /// transfers
-int faiss_StandardGpuResources_setPinnedMemory(
+FAISS_C_API int faiss_StandardGpuResources_setPinnedMemory(
         FaissStandardGpuResources*,
         size_t size);
 
 /// Called to change the stream for work ordering
-int faiss_StandardGpuResources_setDefaultStream(
+FAISS_C_API int faiss_StandardGpuResources_setDefaultStream(
         FaissStandardGpuResources*,
         int device,
         cudaStream_t stream);
 
 /// Called to change the work ordering streams to the null stream
 /// for all devices
-int faiss_StandardGpuResources_setDefaultNullStreamAllDevices(
+FAISS_C_API int faiss_StandardGpuResources_setDefaultNullStreamAllDevices(
         FaissStandardGpuResources*);
 
 #ifdef __cplusplus
