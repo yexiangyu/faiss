@@ -41,7 +41,7 @@ typedef enum FaissMetricType {
 FAISS_DECLARE_CLASS(SearchParameters)
 FAISS_DECLARE_DESTRUCTOR(SearchParameters)
 
-int faiss_SearchParameters_new(
+FAISS_C_API int faiss_SearchParameters_new(
         FaissSearchParameters** p_sp,
         FaissIDSelector* sel);
 
@@ -69,7 +69,7 @@ FAISS_DECLARE_GETTER_SETTER(Index, int, verbose)
  * @param n      nb of training vectors
  * @param x      training vectors, size n * d
  */
-int faiss_Index_train(FaissIndex* index, idx_t n, const float* x);
+FAISS_C_API int faiss_Index_train(FaissIndex* index, idx_t n, const float* x);
 
 /** Add n vectors of dimension d to the index.
  *
@@ -79,7 +79,7 @@ int faiss_Index_train(FaissIndex* index, idx_t n, const float* x);
  * @param index  opaque pointer to index object
  * @param x      input matrix, size n * d
  */
-int faiss_Index_add(FaissIndex* index, idx_t n, const float* x);
+FAISS_C_API int faiss_Index_add(FaissIndex* index, idx_t n, const float* x);
 
 /** Same as add, but stores xids instead of sequential ids.
  *
@@ -89,7 +89,7 @@ int faiss_Index_add(FaissIndex* index, idx_t n, const float* x);
  * @param index  opaque pointer to index object
  * @param xids   if non-null, ids to store for the vectors (size n)
  */
-int faiss_Index_add_with_ids(
+FAISS_C_API int faiss_Index_add_with_ids(
         FaissIndex* index,
         idx_t n,
         const float* x,
@@ -105,7 +105,7 @@ int faiss_Index_add_with_ids(
  * @param labels      output labels of the NNs, size n*k
  * @param distances   output pairwise distances, size n*k
  */
-int faiss_Index_search(
+FAISS_C_API int faiss_Index_search(
         const FaissIndex* index,
         idx_t n,
         const float* x,
@@ -125,7 +125,7 @@ int faiss_Index_search(
  * @param labels      output labels of the NNs, size n*k
  * @param distances   output pairwise distances, size n*k
  */
-int faiss_Index_search_with_params(
+FAISS_C_API int faiss_Index_search_with_params(
         const FaissIndex* index,
         idx_t n,
         const float* x,
@@ -145,7 +145,7 @@ int faiss_Index_search_with_params(
  * @param radius      search radius
  * @param result      result table
  */
-int faiss_Index_range_search(
+FAISS_C_API int faiss_Index_range_search(
         const FaissIndex* index,
         idx_t n,
         const float* x,
@@ -159,7 +159,7 @@ int faiss_Index_range_search(
  * @param x           input vectors to search, size n * d
  * @param labels      output labels of the NNs, size n*k
  */
-int faiss_Index_assign(
+FAISS_C_API int faiss_Index_assign(
         FaissIndex* index,
         idx_t n,
         const float* x,
@@ -169,13 +169,13 @@ int faiss_Index_assign(
 /** removes all elements from the database.
  * @param index       opaque pointer to index object
  */
-int faiss_Index_reset(FaissIndex* index);
+FAISS_C_API int faiss_Index_reset(FaissIndex* index);
 
 /** removes IDs from the index. Not supported by all indexes
  * @param index       opaque pointer to index object
  * @param nremove     output for the number of IDs removed
  */
-int faiss_Index_remove_ids(
+FAISS_C_API int faiss_Index_remove_ids(
         FaissIndex* index,
         const FaissIDSelector* sel,
         size_t* n_removed);
@@ -187,7 +187,7 @@ int faiss_Index_remove_ids(
  * @param key         id of the vector to reconstruct
  * @param recons      reconstructed vector (size d)
  */
-int faiss_Index_reconstruct(const FaissIndex* index, idx_t key, float* recons);
+FAISS_C_API int faiss_Index_reconstruct(const FaissIndex* index, idx_t key, float* recons);
 
 /** Reconstruct vectors i0 to i0 + ni - 1
  *
@@ -195,7 +195,7 @@ int faiss_Index_reconstruct(const FaissIndex* index, idx_t key, float* recons);
  * @param index       opaque pointer to index object
  * @param recons      reconstructed vector (size ni * d)
  */
-int faiss_Index_reconstruct_n(
+FAISS_C_API int faiss_Index_reconstruct_n(
         const FaissIndex* index,
         idx_t i0,
         idx_t ni,
@@ -213,7 +213,7 @@ int faiss_Index_reconstruct_n(
  * @param residual    output residual vector, size d
  * @param key         encoded index, as returned by search and assign
  */
-int faiss_Index_compute_residual(
+FAISS_C_API int faiss_Index_compute_residual(
         const FaissIndex* index,
         const float* x,
         float* residual,
@@ -232,7 +232,7 @@ int faiss_Index_compute_residual(
  * @param residuals    output residual vectors, size (n x d)
  * @param keys         encoded index, as returned by search and assign
  */
-int faiss_Index_compute_residual_n(
+FAISS_C_API int faiss_Index_compute_residual_n(
         const FaissIndex* index,
         idx_t n,
         const float* x,
@@ -246,7 +246,7 @@ int faiss_Index_compute_residual_n(
  * @param index   opaque pointer to index object
  * @param size    the returned size in bytes
  */
-int faiss_Index_sa_code_size(const FaissIndex* index, size_t* size);
+FAISS_C_API int faiss_Index_sa_code_size(const FaissIndex* index, size_t* size);
 
 /** encode a set of vectors
  *
@@ -255,7 +255,7 @@ int faiss_Index_sa_code_size(const FaissIndex* index, size_t* size);
  * @param x       input vectors, size n * d
  * @param bytes   output encoded vectors, size n * sa_code_size()
  */
-int faiss_Index_sa_encode(
+FAISS_C_API int faiss_Index_sa_encode(
         const FaissIndex* index,
         idx_t n,
         const float* x,
@@ -268,7 +268,7 @@ int faiss_Index_sa_encode(
  * @param bytes   input encoded vectors, size n * sa_code_size()
  * @param x       output vectors, size n * d
  */
-int faiss_Index_sa_decode(
+FAISS_C_API int faiss_Index_sa_decode(
         const FaissIndex* index,
         idx_t n,
         const uint8_t* bytes,

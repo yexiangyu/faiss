@@ -42,22 +42,22 @@ FAISS_DECLARE_GETTER(IndexIVFFlat, char, quantizer_trains_alone)
 /// whether object owns the quantizer
 FAISS_DECLARE_GETTER_SETTER(IndexIVFFlat, int, own_fields)
 
-int faiss_IndexIVFFlat_new(FaissIndexIVFFlat** p_index);
+FAISS_C_API int faiss_IndexIVFFlat_new(FaissIndexIVFFlat** p_index);
 
-int faiss_IndexIVFFlat_new_with(
+FAISS_C_API int faiss_IndexIVFFlat_new_with(
         FaissIndexIVFFlat** p_index,
         FaissIndex* quantizer,
         size_t d,
         size_t nlist);
 
-int faiss_IndexIVFFlat_new_with_metric(
+FAISS_C_API int faiss_IndexIVFFlat_new_with_metric(
         FaissIndexIVFFlat** p_index,
         FaissIndex* quantizer,
         size_t d,
         size_t nlist,
         FaissMetricType metric);
 
-int faiss_IndexIVFFlat_add_core(
+FAISS_C_API int faiss_IndexIVFFlat_add_core(
         FaissIndexIVFFlat* index,
         idx_t n,
         const float* x,
@@ -72,7 +72,7 @@ int faiss_IndexIVFFlat_add_core(
  * @param idx    vector indices to update, size nv
  * @param v      vectors of new values, size nv*d
  */
-int faiss_IndexIVFFlat_update_vectors(
+FAISS_C_API int faiss_IndexIVFFlat_update_vectors(
         FaissIndexIVFFlat* index,
         int nv,
         idx_t* idx,

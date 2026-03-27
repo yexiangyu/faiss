@@ -53,6 +53,15 @@ project(faiss
   LANGUAGES ${FAISS_LANGUAGES})
 include(GNUInstallDirs)
 
+if(MSVC)
+  add_compile_options($<$<COMPILE_LANGUAGE:CXX>:/utf-8>)
+  add_compile_options($<$<COMPILE_LANGUAGE:C>:/utf-8>)
+endif()
+
+if(WIN32)
+  add_compile_definitions(NOMINMAX)
+endif()
+
 if(FAISS_ENABLE_CUVS)
   set(CMAKE_CXX_STANDARD 17)
 else()

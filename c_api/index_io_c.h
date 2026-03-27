@@ -26,16 +26,16 @@ extern "C" {
  * This is equivalent to `faiss::write_index` when a file descriptor is
  * provided.
  */
-int faiss_write_index(const FaissIndex* idx, FILE* f);
+FAISS_C_API int faiss_write_index(const FaissIndex* idx, FILE* f);
 
 /** Write index to a file.
  * This is equivalent to `faiss::write_index` when a file path is provided.
  */
-int faiss_write_index_fname(const FaissIndex* idx, const char* fname);
+FAISS_C_API int faiss_write_index_fname(const FaissIndex* idx, const char* fname);
 
 /** Write index to a custom writer.
  */
-int faiss_write_index_custom(
+FAISS_C_API int faiss_write_index_custom(
         const FaissIndex* idx,
         FaissIOWriter* io_writer,
         int io_flags);
@@ -46,16 +46,16 @@ int faiss_write_index_custom(
 /** Read index from a file.
  * This is equivalent to `faiss:read_index` when a file descriptor is given.
  */
-int faiss_read_index(FILE* f, int io_flags, FaissIndex** p_out);
+FAISS_C_API int faiss_read_index(FILE* f, int io_flags, FaissIndex** p_out);
 
 /** Read index from a file.
  * This is equivalent to `faiss:read_index` when a file path is given.
  */
-int faiss_read_index_fname(const char* fname, int io_flags, FaissIndex** p_out);
+FAISS_C_API int faiss_read_index_fname(const char* fname, int io_flags, FaissIndex** p_out);
 
 /** Read index from a custom reader.
  */
-int faiss_read_index_custom(
+FAISS_C_API int faiss_read_index_custom(
         FaissIOReader* io_reader,
         int io_flags,
         FaissIndex** p_out);
@@ -64,19 +64,19 @@ int faiss_read_index_custom(
  * This is equivalent to `faiss::write_index_binary` when a file descriptor is
  * provided.
  */
-int faiss_write_index_binary(const FaissIndexBinary* idx, FILE* f);
+FAISS_C_API int faiss_write_index_binary(const FaissIndexBinary* idx, FILE* f);
 
 /** Write index to a file.
  * This is equivalent to `faiss::write_index_binary` when a file path is
  * provided.
  */
-int faiss_write_index_binary_fname(
+FAISS_C_API int faiss_write_index_binary_fname(
         const FaissIndexBinary* idx,
         const char* fname);
 
 /** Write binary index to a custom writer.
  */
-int faiss_write_index_binary_custom(
+FAISS_C_API int faiss_write_index_binary_custom(
         const FaissIndexBinary* idx,
         FaissIOWriter* io_writer);
 
@@ -84,19 +84,19 @@ int faiss_write_index_binary_custom(
  * This is equivalent to `faiss:read_index_binary` when a file descriptor is
  * given.
  */
-int faiss_read_index_binary(FILE* f, int io_flags, FaissIndexBinary** p_out);
+FAISS_C_API int faiss_read_index_binary(FILE* f, int io_flags, FaissIndexBinary** p_out);
 
 /** Read index from a file.
  * This is equivalent to `faiss:read_index_binary` when a file path is given.
  */
-int faiss_read_index_binary_fname(
+FAISS_C_API int faiss_read_index_binary_fname(
         const char* fname,
         int io_flags,
         FaissIndexBinary** p_out);
 
 /** Read binary index from a custom reader.
  */
-int faiss_read_index_binary_custom(
+FAISS_C_API int faiss_read_index_binary_custom(
         FaissIOReader* io_reader,
         int io_flags,
         FaissIndexBinary** p_out);
@@ -104,7 +104,7 @@ int faiss_read_index_binary_custom(
 /** Read vector transform from a file.
  * This is equivalent to `faiss:read_VectorTransform` when a file path is given.
  */
-int faiss_read_VectorTransform_fname(
+FAISS_C_API int faiss_read_VectorTransform_fname(
         const char* fname,
         FaissVectorTransform** p_out);
 #ifdef __cplusplus

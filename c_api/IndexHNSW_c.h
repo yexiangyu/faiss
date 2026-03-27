@@ -22,8 +22,8 @@ FAISS_DECLARE_CLASS_INHERITED(SearchParametersHNSW, SearchParameters)
 FAISS_DECLARE_DESTRUCTOR(SearchParametersHNSW)
 FAISS_DECLARE_SEARCH_PARAMETERS_DOWNCAST(SearchParametersHNSW)
 
-int faiss_SearchParametersHNSW_new(FaissSearchParametersHNSW** p_sp);
-int faiss_SearchParametersHNSW_new_with(
+FAISS_C_API int faiss_SearchParametersHNSW_new(FaissSearchParametersHNSW** p_sp);
+FAISS_C_API int faiss_SearchParametersHNSW_new_with(
         FaissSearchParametersHNSW** p_sp,
         FaissIDSelector* sel,
         int efSearch);

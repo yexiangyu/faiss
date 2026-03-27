@@ -22,7 +22,7 @@ FAISS_DECLARE_CLASS_INHERITED(IndexIDMap, Index)
 
 FAISS_DECLARE_GETTER_SETTER(IndexIDMap, int, own_fields)
 
-int faiss_IndexIDMap_new(FaissIndexIDMap** p_index, FaissIndex* index);
+FAISS_C_API int faiss_IndexIDMap_new(FaissIndexIDMap** p_index, FaissIndex* index);
 
 /** attempt a dynamic cast to a IDMap, thus checking
  * check whether the underlying index type is `IndexIDMap`.
@@ -40,7 +40,7 @@ FAISS_DECLARE_INDEX_DOWNCAST(IndexIDMap)
  * @param p_id_map    output, the pointer to the beginning of `id_map`.
  * @param p_size  output, the current length of `id_map`.
  */
-void faiss_IndexIDMap_id_map(
+FAISS_C_API void faiss_IndexIDMap_id_map(
         FaissIndexIDMap* index,
         idx_t** p_id_map,
         size_t* p_size);
@@ -51,7 +51,7 @@ void faiss_IndexIDMap_id_map(
  *
  * @param index   opaque pointer to index object
  */
-FaissIndex* faiss_IndexIDMap_sub_index(FaissIndexIDMap* index);
+FAISS_C_API FaissIndex* faiss_IndexIDMap_sub_index(FaissIndexIDMap* index);
 
 /** same as IndexIDMap but also provides an efficient reconstruction
     implementation via a 2-way index */
@@ -59,10 +59,10 @@ FAISS_DECLARE_CLASS_INHERITED(IndexIDMap2, Index)
 
 FAISS_DECLARE_GETTER_SETTER(IndexIDMap2, int, own_fields)
 
-int faiss_IndexIDMap2_new(FaissIndexIDMap2** p_index, FaissIndex* index);
+FAISS_C_API int faiss_IndexIDMap2_new(FaissIndexIDMap2** p_index, FaissIndex* index);
 
 /// make the rev_map from scratch
-int faiss_IndexIDMap2_construct_rev_map(FaissIndexIDMap2* index);
+FAISS_C_API int faiss_IndexIDMap2_construct_rev_map(FaissIndexIDMap2* index);
 
 /** attempt a dynamic cast to a IDMap2, thus checking
  * check whether the underlying index type is `IndexIDMap`.
@@ -80,7 +80,7 @@ FAISS_DECLARE_INDEX_DOWNCAST(IndexIDMap2)
  * @param p_id_map    output, the pointer to the beginning of `id_map`.
  * @param p_size  output, the current length of `id_map`.
  */
-void faiss_IndexIDMap2_id_map(
+FAISS_C_API void faiss_IndexIDMap2_id_map(
         FaissIndexIDMap2* index,
         idx_t** p_id_map,
         size_t* p_size);
@@ -91,7 +91,7 @@ void faiss_IndexIDMap2_id_map(
  *
  * @param index   opaque pointer to index object
  */
-FaissIndex* faiss_IndexIDMap2_sub_index(FaissIndexIDMap2* index);
+FAISS_C_API FaissIndex* faiss_IndexIDMap2_sub_index(FaissIndexIDMap2* index);
 
 #ifdef __cplusplus
 }

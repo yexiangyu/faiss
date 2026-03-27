@@ -39,7 +39,7 @@ typedef struct FaissClusteringParameters {
 } FaissClusteringParameters;
 
 /// Sets the ClusteringParameters object with reasonable defaults
-void faiss_ClusteringParameters_init(FaissClusteringParameters* params);
+FAISS_C_API void faiss_ClusteringParameters_init(FaissClusteringParameters* params);
 
 /** clustering based on assignment - centroid update iterations
  *
@@ -85,33 +85,33 @@ FAISS_DECLARE_GETTER(ClusteringIterationStats, double, imbalance_factor)
 FAISS_DECLARE_GETTER(ClusteringIterationStats, int, nsplit)
 
 /// getter for centroids (size = k * d)
-void faiss_Clustering_centroids(
+FAISS_C_API void faiss_Clustering_centroids(
         FaissClustering* clustering,
         float** centroids,
         size_t* size);
 
 /// getter for iteration stats
-void faiss_Clustering_iteration_stats(
+FAISS_C_API void faiss_Clustering_iteration_stats(
         FaissClustering* clustering,
         FaissClusteringIterationStats** iteration_stats,
         size_t* size);
 
 /// the only mandatory parameters are k and d
-int faiss_Clustering_new(FaissClustering** p_clustering, int d, int k);
+FAISS_C_API int faiss_Clustering_new(FaissClustering** p_clustering, int d, int k);
 
-int faiss_Clustering_new_with_params(
+FAISS_C_API int faiss_Clustering_new_with_params(
         FaissClustering** p_clustering,
         int d,
         int k,
         const FaissClusteringParameters* cp);
 
-int faiss_Clustering_train(
+FAISS_C_API int faiss_Clustering_train(
         FaissClustering* clustering,
         idx_t n,
         const float* x,
         FaissIndex* index);
 
-void faiss_Clustering_free(FaissClustering* clustering);
+FAISS_C_API void faiss_Clustering_free(FaissClustering* clustering);
 
 /** simplified interface
  *
@@ -123,7 +123,7 @@ void faiss_Clustering_free(FaissClustering* clustering);
  * @param q_error final quantization error
  * @return error code
  */
-int faiss_kmeans_clustering(
+FAISS_C_API int faiss_kmeans_clustering(
         size_t d,
         size_t n,
         size_t k,

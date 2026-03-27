@@ -23,10 +23,10 @@ extern "C" {
 /* cloning functions */
 
 /** Clone an index. This is equivalent to `faiss::clone_index` */
-int faiss_clone_index(const FaissIndex*, FaissIndex** p_out);
+FAISS_C_API int faiss_clone_index(const FaissIndex*, FaissIndex** p_out);
 
 /** Clone a binary index. This is equivalent to `faiss::clone_index_binary` */
-int faiss_clone_index_binary(const FaissIndexBinary*, FaissIndexBinary** p_out);
+FAISS_C_API int faiss_clone_index_binary(const FaissIndexBinary*, FaissIndexBinary** p_out);
 
 #ifdef __cplusplus
 }

@@ -36,9 +36,9 @@ typedef enum FaissMetricType FaissMetricType;
 /** Opaque type for IndexScalarQuantizer */
 FAISS_DECLARE_CLASS_INHERITED(IndexScalarQuantizer, Index)
 
-int faiss_IndexScalarQuantizer_new(FaissIndexScalarQuantizer** p_index);
+FAISS_C_API int faiss_IndexScalarQuantizer_new(FaissIndexScalarQuantizer** p_index);
 
-int faiss_IndexScalarQuantizer_new_with(
+FAISS_C_API int faiss_IndexScalarQuantizer_new_with(
         FaissIndexScalarQuantizer** p_index,
         idx_t d,
         FaissQuantizerType qt,
@@ -55,16 +55,16 @@ FAISS_DECLARE_INDEX_DOWNCAST(IndexIVFScalarQuantizer)
 
 FAISS_DECLARE_DESTRUCTOR(IndexIVFScalarQuantizer)
 
-int faiss_IndexIVFScalarQuantizer_new(FaissIndexIVFScalarQuantizer** p_index);
+FAISS_C_API int faiss_IndexIVFScalarQuantizer_new(FaissIndexIVFScalarQuantizer** p_index);
 
-int faiss_IndexIVFScalarQuantizer_new_with(
+FAISS_C_API int faiss_IndexIVFScalarQuantizer_new_with(
         FaissIndexIVFScalarQuantizer** p_index,
         FaissIndex* quantizer,
         idx_t d,
         size_t nlist,
         FaissQuantizerType qt);
 
-int faiss_IndexIVFScalarQuantizer_new_with_metric(
+FAISS_C_API int faiss_IndexIVFScalarQuantizer_new_with_metric(
         FaissIndexIVFScalarQuantizer** p_index,
         FaissIndex* quantizer,
         size_t d,
@@ -83,7 +83,7 @@ FAISS_DECLARE_GETTER(IndexIVFScalarQuantizer, FaissIndex*, quantizer)
 /// whether object owns the quantizer
 FAISS_DECLARE_GETTER_SETTER(IndexIVFScalarQuantizer, int, own_fields)
 
-int faiss_IndexIVFScalarQuantizer_add_core(
+FAISS_C_API int faiss_IndexIVFScalarQuantizer_add_core(
         FaissIndexIVFScalarQuantizer* index,
         idx_t n,
         const float* x,

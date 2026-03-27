@@ -25,19 +25,19 @@ FAISS_DECLARE_DESTRUCTOR(IndexShards)
 FAISS_DECLARE_GETTER_SETTER(IndexShards, int, own_fields)
 FAISS_DECLARE_GETTER_SETTER(IndexShards, int, successive_ids)
 
-int faiss_IndexShards_new(FaissIndexShards** p_index, idx_t d);
+FAISS_C_API int faiss_IndexShards_new(FaissIndexShards** p_index, idx_t d);
 
-int faiss_IndexShards_new_with_options(
+FAISS_C_API int faiss_IndexShards_new_with_options(
         FaissIndexShards** p_index,
         idx_t d,
         int threaded,
         int successive_ids);
 
-int faiss_IndexShards_add_shard(FaissIndexShards* index, FaissIndex* shard);
+FAISS_C_API int faiss_IndexShards_add_shard(FaissIndexShards* index, FaissIndex* shard);
 
-int faiss_IndexShards_remove_shard(FaissIndexShards* index, FaissIndex* shard);
+FAISS_C_API int faiss_IndexShards_remove_shard(FaissIndexShards* index, FaissIndex* shard);
 
-FaissIndex* faiss_IndexShards_at(FaissIndexShards* index, int i);
+FAISS_C_API FaissIndex* faiss_IndexShards_at(FaissIndexShards* index, int i);
 
 #ifdef __cplusplus
 }

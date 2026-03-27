@@ -1011,5 +1011,26 @@ __host__ __device__ Tensor<T, NewDim, InnerContig, IndexT, PtrTraits> Tensor<
     return Tensor<T, NewDim, true, IndexT, PtrTraits>(data(), sizes);
 }
 
+template <typename T, int Dim, bool InnerContig, typename IndexT, template <typename U> class PtrTraits>
+template <int NewDim>
+__host__ __device__ Tensor<T, NewDim, InnerContig, IndexT, PtrTraits> Tensor<
+        T,
+        Dim,
+        InnerContig,
+        IndexT,
+        PtrTraits>::view(const IndexT (&sizes)[NewDim]) {
+    GPU_FAISS_ASSERT(this->isContiguous());
+
+    size_t curSize = numElements();
+    size_t newSize = 1;
+
+    for (int i = 0; i < NewDim; ++i) {
+        newSize *= sizes[i];
+    }
+
+    GPU_FAISS_ASSERT(curSize == newSize);
+    return Tensor<T, NewDim, true, IndexT, PtrTraits>(data(), sizes);
+}
+
 } // namespace gpu
 } // namespace faiss

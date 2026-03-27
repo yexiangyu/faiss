@@ -55,7 +55,7 @@ FAISS_DECLARE_GETTER_SETTER(IndexBinaryIVF, int, per_invlist_search)
 /** moves the entries from another dataset to self. On output,
  * other is empty. add_id is added to all moved ids (for
  * sequential ids, this would be this->ntotal */
-int faiss_IndexBinaryIVF_merge_from(
+FAISS_C_API int faiss_IndexBinaryIVF_merge_from(
         FaissIndexBinaryIVF* index,
         FaissIndexBinaryIVF* other,
         idx_t add_id);
@@ -77,7 +77,7 @@ int faiss_IndexBinaryIVF_merge_from(
  *                     instead of ids (used for reranking).
  * @param params used to override the object's search parameters
  */
-int faiss_IndexBinaryIVF_search_preassigned(
+FAISS_C_API int faiss_IndexBinaryIVF_search_preassigned(
         const FaissIndexBinaryIVF* index,
         idx_t n,
         const uint8_t* x,
@@ -89,7 +89,7 @@ int faiss_IndexBinaryIVF_search_preassigned(
         int store_pairs,
         const FaissSearchParametersIVF* params);
 
-size_t faiss_IndexBinaryIVF_get_list_size(
+FAISS_C_API size_t faiss_IndexBinaryIVF_get_list_size(
         const FaissIndexBinaryIVF* index,
         size_t list_no);
 
@@ -98,7 +98,7 @@ size_t faiss_IndexBinaryIVF_get_list_size(
  * @param new_maintain_direct_map    if true, create a direct map,
  *                                   else clear it
  */
-int faiss_IndexBinaryIVF_make_direct_map(
+FAISS_C_API int faiss_IndexBinaryIVF_make_direct_map(
         FaissIndexBinaryIVF* index,
         int new_maintain_direct_map);
 
@@ -106,10 +106,10 @@ int faiss_IndexBinaryIVF_make_direct_map(
  *
  * 1= perfectly balanced, >1: imbalanced
  */
-double faiss_IndexBinaryIVF_imbalance_factor(const FaissIndexBinaryIVF* index);
+FAISS_C_API double faiss_IndexBinaryIVF_imbalance_factor(const FaissIndexBinaryIVF* index);
 
 /// display some stats about the inverted lists of the index
-void faiss_IndexBinaryIVF_print_stats(const FaissIndexBinaryIVF* index);
+FAISS_C_API void faiss_IndexBinaryIVF_print_stats(const FaissIndexBinaryIVF* index);
 
 #ifdef __cplusplus
 }

@@ -10,6 +10,8 @@
 #ifndef FAISS_ERROR_C_H
 #define FAISS_ERROR_C_H
 
+#include "faiss_c.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -32,7 +34,7 @@ typedef enum FaissErrorCode {
  * The given pointer is only invalid until another Faiss function is
  * called.
  */
-const char* faiss_get_last_error();
+FAISS_C_API const char* faiss_get_last_error();
 
 #ifdef __cplusplus
 }

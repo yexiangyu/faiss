@@ -458,10 +458,10 @@ void runPQCodeDistancesMM(
     // Perform a batch MM:
     // (sub q) x {(q * c)(sub dim) x (sub dim)(code)} =>
     // (sub q) x {(q * c)(code)}
-    auto residualView3 = residual.view<3>(
-            {pqCentroids.getSize(0),
+    idx_t residualView3Sizes[3] = {pqCentroids.getSize(0),
              coarseIndices.getSize(0) * coarseIndices.getSize(1),
-             pqCentroids.getSize(1)});
+             pqCentroids.getSize(1)};
+    auto residualView3 = residual.view<3>(residualView3Sizes);
 
     DeviceTensor<float, 3, true> residualDistance(
             res,
@@ -490,18 +490,18 @@ void runPQCodeDistancesMM(
                 {pqCentroids.getSize(0) * coarseIndices.getSize(0) *
                  coarseIndices.getSize(1)});
 
-        auto residualView2 = residual.view<2>(
-                {pqCentroids.getSize(0) * coarseIndices.getSize(0) *
+        idx_t residualView2Sizes[2] = {pqCentroids.getSize(0) * coarseIndices.getSize(0) *
                          coarseIndices.getSize(1),
-                 pqCentroids.getSize(1)});
+                 pqCentroids.getSize(1)};
+        auto residualView2 = residual.view<2>(residualView2Sizes);
 
         runL2Norm(residualView2, true, residualNorms, true, stream);
 
         // Sum ||q - c||^2 along rows
-        auto residualDistanceView2 = residualDistance.view<2>(
-                {pqCentroids.getSize(0) * coarseIndices.getSize(0) *
+        idx_t residualDistanceView2Sizes[2] = {pqCentroids.getSize(0) * coarseIndices.getSize(0) *
                          coarseIndices.getSize(1),
-                 pqCentroids.getSize(2)});
+                 pqCentroids.getSize(2)};
+        auto residualDistanceView2 = residualDistance.view<2>(residualDistanceView2Sizes);
 
         runSumAlongRows(residualNorms, residualDistanceView2, false, stream);
     }
@@ -509,10 +509,10 @@ void runPQCodeDistancesMM(
     // Transpose (sub q)(q * c)(code) to (q * c)(sub q)(code) (which
     // is where we build our output distances). L2 version of this has an added
     // -2 multiplicative factor
-    auto outCodeDistancesView = outCodeDistancesF.view<3>(
-            {coarseIndices.getSize(0) * coarseIndices.getSize(1),
+    idx_t outCodeDistancesViewSizes[3] = {coarseIndices.getSize(0) * coarseIndices.getSize(1),
              outCodeDistances.getSize(2),
-             outCodeDistances.getSize(3)});
+             outCodeDistances.getSize(3)};
+    auto outCodeDistancesView = outCodeDistancesF.view<3>(outCodeDistancesViewSizes);
 
     runTransposeAny(residualDistance, 0, 1, outCodeDistancesView, stream);
 
@@ -529,9 +529,9 @@ void runPQCodeDistancesMM(
 
         runTransposeAny(pqCentroids, 1, 2, pqCentroidsTranspose, stream);
 
-        auto pqCentroidsTransposeView = pqCentroidsTranspose.view<2>(
-                {pqCentroids.getSize(0) * pqCentroids.getSize(2),
-                 pqCentroids.getSize(1)});
+        idx_t pqCentroidsTransposeViewSizes[2] = {pqCentroids.getSize(0) * pqCentroids.getSize(2),
+                 pqCentroids.getSize(1)};
+        auto pqCentroidsTransposeView = pqCentroidsTranspose.view<2>(pqCentroidsTransposeViewSizes);
 
         // The norm of each (sub q)(code)
         DeviceTensor<float, 1, true> pqCentroidsNorm(
@@ -544,9 +544,9 @@ void runPQCodeDistancesMM(
 
         // View output as (q * c)(sub q * code), and add centroid norm to
         // each row
-        auto outDistancesCodeViewCols = outCodeDistancesView.view<2>(
-                {coarseIndices.getSize(0) * coarseIndices.getSize(1),
-                 outCodeDistances.getSize(2) * outCodeDistances.getSize(3)});
+        idx_t outDistancesCodeViewColsSizes[2] = {coarseIndices.getSize(0) * coarseIndices.getSize(1),
+                 outCodeDistances.getSize(2) * outCodeDistances.getSize(3)};
+        auto outDistancesCodeViewCols = outCodeDistancesView.template view<2>(outDistancesCodeViewColsSizes);
 
         runSumAlongColumns(pqCentroidsNorm, outDistancesCodeViewCols, stream);
     } else {

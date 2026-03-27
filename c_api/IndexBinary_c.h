@@ -48,7 +48,7 @@ FAISS_DECLARE_GETTER_SETTER(IndexBinary, int, verbose)
  * @param n      nb of training vectors
  * @param x      training vectors, size n * d
  */
-int faiss_IndexBinary_train(FaissIndexBinary* index, idx_t n, const uint8_t* x);
+FAISS_C_API int faiss_IndexBinary_train(FaissIndexBinary* index, idx_t n, const uint8_t* x);
 
 /** Add n vectors of dimension d to the index.
  *
@@ -58,7 +58,7 @@ int faiss_IndexBinary_train(FaissIndexBinary* index, idx_t n, const uint8_t* x);
  * @param index  opaque pointer to index object
  * @param x      input matrix, size n * d
  */
-int faiss_IndexBinary_add(FaissIndexBinary* index, idx_t n, const uint8_t* x);
+FAISS_C_API int faiss_IndexBinary_add(FaissIndexBinary* index, idx_t n, const uint8_t* x);
 
 /** Same as add, but stores xids instead of sequential ids.
  *
@@ -68,7 +68,7 @@ int faiss_IndexBinary_add(FaissIndexBinary* index, idx_t n, const uint8_t* x);
  * @param index  opaque pointer to index object
  * @param xids   if non-null, ids to store for the vectors (size n)
  */
-int faiss_IndexBinary_add_with_ids(
+FAISS_C_API int faiss_IndexBinary_add_with_ids(
         FaissIndexBinary* index,
         idx_t n,
         const uint8_t* x,
@@ -84,7 +84,7 @@ int faiss_IndexBinary_add_with_ids(
  * @param labels      output labels of the NNs, size n*k
  * @param distances   output pairwise distances, size n*k
  */
-int faiss_IndexBinary_search(
+FAISS_C_API int faiss_IndexBinary_search(
         const FaissIndexBinary* index,
         idx_t n,
         const uint8_t* x,
@@ -106,7 +106,7 @@ int faiss_IndexBinary_search(
  * @param distances   output pairwise distances, size n*k
  * @param labels      output labels of the NNs, size n*k
  */
-int faiss_IndexBinary_search_with_params(
+FAISS_C_API int faiss_IndexBinary_search_with_params(
         const FaissIndexBinary* index,
         idx_t n,
         const uint8_t* x,
@@ -126,7 +126,7 @@ int faiss_IndexBinary_search_with_params(
  * @param radius      search radius
  * @param result      result table
  */
-int faiss_IndexBinary_range_search(
+FAISS_C_API int faiss_IndexBinary_range_search(
         const FaissIndexBinary* index,
         idx_t n,
         const uint8_t* x,
@@ -140,7 +140,7 @@ int faiss_IndexBinary_range_search(
  * @param x           input vectors to search, size n * d
  * @param labels      output labels of the NNs, size n*k
  */
-int faiss_IndexBinary_assign(
+FAISS_C_API int faiss_IndexBinary_assign(
         FaissIndexBinary* index,
         idx_t n,
         const uint8_t* x,
@@ -150,13 +150,13 @@ int faiss_IndexBinary_assign(
 /** removes all elements from the database.
  * @param index       opaque pointer to index object
  */
-int faiss_IndexBinary_reset(FaissIndexBinary* index);
+FAISS_C_API int faiss_IndexBinary_reset(FaissIndexBinary* index);
 
 /** removes IDs from the index. Not supported by all indexes
  * @param index       opaque pointer to index object
  * @param nremove     output for the number of IDs removed
  */
-int faiss_IndexBinary_remove_ids(
+FAISS_C_API int faiss_IndexBinary_remove_ids(
         FaissIndexBinary* index,
         const FaissIDSelector* sel,
         size_t* n_removed);
@@ -168,7 +168,7 @@ int faiss_IndexBinary_remove_ids(
  * @param key         id of the vector to reconstruct
  * @param recons      reconstructed vector (size d)
  */
-int faiss_IndexBinary_reconstruct(
+FAISS_C_API int faiss_IndexBinary_reconstruct(
         const FaissIndexBinary* index,
         idx_t key,
         uint8_t* recons);
@@ -179,7 +179,7 @@ int faiss_IndexBinary_reconstruct(
  * @param index       opaque pointer to index object
  * @param recons      reconstructed vector (size ni * d)
  */
-int faiss_IndexBinary_reconstruct_n(
+FAISS_C_API int faiss_IndexBinary_reconstruct_n(
         const FaissIndexBinary* index,
         idx_t i0,
         idx_t ni,

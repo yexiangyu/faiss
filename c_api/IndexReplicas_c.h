@@ -24,22 +24,22 @@ FAISS_DECLARE_DESTRUCTOR(IndexReplicas)
 
 FAISS_DECLARE_GETTER_SETTER(IndexReplicas, int, own_fields)
 
-int faiss_IndexReplicas_new(FaissIndexReplicas** p_index, idx_t d);
+FAISS_C_API int faiss_IndexReplicas_new(FaissIndexReplicas** p_index, idx_t d);
 
-int faiss_IndexReplicas_new_with_options(
+FAISS_C_API int faiss_IndexReplicas_new_with_options(
         FaissIndexReplicas** p_index,
         idx_t d,
         int threaded);
 
-int faiss_IndexReplicas_add_replica(
+FAISS_C_API int faiss_IndexReplicas_add_replica(
         FaissIndexReplicas* index,
         FaissIndex* replica);
 
-int faiss_IndexReplicas_remove_replica(
+FAISS_C_API int faiss_IndexReplicas_remove_replica(
         FaissIndexReplicas* index,
         FaissIndex* replica);
 
-FaissIndex* faiss_IndexReplicas_at(FaissIndexReplicas* index, int i);
+FAISS_C_API FaissIndex* faiss_IndexReplicas_at(FaissIndexReplicas* index, int i);
 
 #ifdef __cplusplus
 }

@@ -365,6 +365,10 @@ class Tensor {
     __host__ __device__ Tensor<T, NewDim, InnerContig, IndexT, PtrTraits> view(
             std::initializer_list<IndexT> sizes);
 
+    template <int NewDim>
+    __host__ __device__ Tensor<T, NewDim, InnerContig, IndexT, PtrTraits> view(
+            const IndexT (&sizes)[NewDim]);
+
    protected:
     /// Raw pointer to where the tensor data begins
     DataPtrType data_;

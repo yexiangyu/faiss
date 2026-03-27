@@ -23,8 +23,8 @@ FAISS_DECLARE_CLASS_INHERITED(SearchParametersIVF, SearchParameters)
 FAISS_DECLARE_DESTRUCTOR(SearchParametersIVF)
 FAISS_DECLARE_SEARCH_PARAMETERS_DOWNCAST(SearchParametersIVF)
 
-int faiss_SearchParametersIVF_new(FaissSearchParametersIVF** p_sp);
-int faiss_SearchParametersIVF_new_with(
+FAISS_C_API int faiss_SearchParametersIVF_new(FaissSearchParametersIVF** p_sp);
+FAISS_C_API int faiss_SearchParametersIVF_new_with(
         FaissSearchParametersIVF** p_sp,
         FaissIDSelector* sel,
         size_t nprobe,
@@ -74,7 +74,7 @@ FAISS_DECLARE_GETTER_SETTER(IndexIVF, int, own_fields)
 /** moves the entries from another dataset to self. On output,
  * other is empty. add_id is added to all moved ids (for
  * sequential ids, this would be this->ntotal */
-int faiss_IndexIVF_merge_from(
+FAISS_C_API int faiss_IndexIVF_merge_from(
         FaissIndexIVF* index,
         FaissIndexIVF* other,
         idx_t add_id);
@@ -86,7 +86,7 @@ int faiss_IndexIVF_merge_from(
  * if subset_type == 2: copies inverted lists such that a1
  *                      elements are left before and a2 elements are after
  */
-int faiss_IndexIVF_copy_subset_to(
+FAISS_C_API int faiss_IndexIVF_copy_subset_to(
         const FaissIndexIVF* index,
         FaissIndexIVF* other,
         int subset_type,
@@ -109,7 +109,7 @@ int faiss_IndexIVF_copy_subset_to(
  *                     instead in upper/lower 32 bit of result,
  *                     instead of ids (used for reranking).
  */
-int faiss_IndexIVF_search_preassigned(
+FAISS_C_API int faiss_IndexIVF_search_preassigned(
         const FaissIndexIVF* index,
         idx_t n,
         const float* x,
@@ -120,14 +120,14 @@ int faiss_IndexIVF_search_preassigned(
         idx_t* labels,
         int store_pairs);
 
-size_t faiss_IndexIVF_get_list_size(const FaissIndexIVF* index, size_t list_no);
+FAISS_C_API size_t faiss_IndexIVF_get_list_size(const FaissIndexIVF* index, size_t list_no);
 
 /** initialize a direct map
  *
  * @param new_maintain_direct_map    if true, create a direct map,
  *                                   else clear it
  */
-int faiss_IndexIVF_make_direct_map(
+FAISS_C_API int faiss_IndexIVF_make_direct_map(
         FaissIndexIVF* index,
         int new_maintain_direct_map);
 
@@ -135,10 +135,10 @@ int faiss_IndexIVF_make_direct_map(
  *
  * 1= perfectly balanced, >1: imbalanced
  */
-double faiss_IndexIVF_imbalance_factor(const FaissIndexIVF* index);
+FAISS_C_API double faiss_IndexIVF_imbalance_factor(const FaissIndexIVF* index);
 
 /// display some stats about the inverted lists of the index
-void faiss_IndexIVF_print_stats(const FaissIndexIVF* index);
+FAISS_C_API void faiss_IndexIVF_print_stats(const FaissIndexIVF* index);
 
 /// Get the IDs in an inverted list. IDs are written to `invlist`, which must be
 /// large enough
@@ -148,12 +148,12 @@ void faiss_IndexIVF_print_stats(const FaissIndexIVF* index);
 /// @param invlist output pointer to a slice of memory, at least as long as the
 /// list's size
 /// @see faiss_IndexIVF_get_list_size(size_t)
-void faiss_IndexIVF_invlists_get_ids(
+FAISS_C_API void faiss_IndexIVF_invlists_get_ids(
         const FaissIndexIVF* index,
         size_t list_no,
         idx_t* invlist);
 
-int faiss_IndexIVF_train_encoder(
+FAISS_C_API int faiss_IndexIVF_train_encoder(
         FaissIndexIVF* index,
         idx_t n,
         const float* x,
@@ -168,14 +168,14 @@ typedef struct FaissIndexIVFStats {
     double search_time;       // time spent searching lists (in ms)
 } FaissIndexIVFStats;
 
-void faiss_IndexIVFStats_reset(FaissIndexIVFStats* stats);
+FAISS_C_API void faiss_IndexIVFStats_reset(FaissIndexIVFStats* stats);
 
 inline void faiss_IndexIVFStats_init(FaissIndexIVFStats* stats) {
     faiss_IndexIVFStats_reset(stats);
 }
 
 /// global var that collects all statistics
-FaissIndexIVFStats* faiss_get_indexIVF_stats();
+FAISS_C_API FaissIndexIVFStats* faiss_get_indexIVF_stats();
 
 #ifdef __cplusplus
 }

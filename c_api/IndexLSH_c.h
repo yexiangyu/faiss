@@ -28,9 +28,9 @@ FAISS_DECLARE_GETTER(IndexLSH, int, code_size)
 FAISS_DECLARE_GETTER(IndexLSH, int, rotate_data)
 FAISS_DECLARE_GETTER(IndexLSH, int, train_thresholds)
 
-int faiss_IndexLSH_new(FaissIndexLSH** p_index, idx_t d, int nbits);
+FAISS_C_API int faiss_IndexLSH_new(FaissIndexLSH** p_index, idx_t d, int nbits);
 
-int faiss_IndexLSH_new_with_options(
+FAISS_C_API int faiss_IndexLSH_new_with_options(
         FaissIndexLSH** p_index,
         idx_t d,
         int nbits,

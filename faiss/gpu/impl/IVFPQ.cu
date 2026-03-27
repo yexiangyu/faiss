@@ -155,10 +155,10 @@ void IVFPQ::appendVectors_(
         // (vec x numSubQuantizer x dimPerSubQuantizer)
         // transpose to
         // (numSubQuantizer x vec x dimPerSubQuantizer)
-        auto residualsView = ivfCentroidResiduals.view<3>(
-                {ivfCentroidResiduals.getSize(0),
+        idx_t residualsViewSizes[3] = {ivfCentroidResiduals.getSize(0),
                  numSubQuantizers_,
-                 dimPerSubQuantizer_});
+                 dimPerSubQuantizer_};
+        auto residualsView = ivfCentroidResiduals.view<3>(residualsViewSizes);
 
         DeviceTensor<float, 3, true> residualsTranspose(
                 resources_,
@@ -217,8 +217,8 @@ void IVFPQ::appendVectors_(
 
         // Now, we have the nearest sub-q centroid for each slice of the
         // residual vector.
-        auto closestSubQIndex8View = closestSubQIndex8.view<2>(
-                {numSubQuantizers_, ivfCentroidResiduals.getSize(0)});
+        idx_t closestSubQIndex8ViewSizes[2] = {numSubQuantizers_, ivfCentroidResiduals.getSize(0)};
+        auto closestSubQIndex8View = closestSubQIndex8.view<2>(closestSubQIndex8ViewSizes);
 
         // The encodings are finally a transpose of this data
         runTransposeAny(closestSubQIndex8View, 0, 1, encodings, stream);
@@ -443,9 +443,9 @@ void IVFPQ::precomputeCodes_(Index* quantizer) {
 
     // View (centroid id)(sub q)(code id) as
     //      (centroid id)(sub q * code id)
-    auto coarsePQProductTransposedView = coarsePQProductTransposed.view<2>(
-            {ivfCentroids_.getSize(0),
-             numSubQuantizers_ * numSubQuantizerCodes_});
+    idx_t coarsePQProductTransposedViewSizes[2] = {ivfCentroids_.getSize(0),
+             numSubQuantizers_ * numSubQuantizerCodes_};
+    auto coarsePQProductTransposedView = coarsePQProductTransposed.view<2>(coarsePQProductTransposedViewSizes);
 
     // Sum || y_R ||^2 + 2 * (y_C|y_R)
     // i.e., add norms                              (sub q * code id)
@@ -453,9 +453,9 @@ void IVFPQ::precomputeCodes_(Index* quantizer) {
     {
         // Compute ||y_R||^2 by treating
         // (sub q)(code id)(sub dim) as (sub q * code id)(sub dim)
-        auto pqCentroidsMiddleCodeView = pqCentroidsMiddleCode_.view<2>(
-                {numSubQuantizers_ * numSubQuantizerCodes_,
-                 dimPerSubQuantizer_});
+        idx_t pqCentroidsMiddleCodeViewSizes[2] = {numSubQuantizers_ * numSubQuantizerCodes_,
+                 dimPerSubQuantizer_};
+        auto pqCentroidsMiddleCodeView = pqCentroidsMiddleCode_.view<2>(pqCentroidsMiddleCodeViewSizes);
         DeviceTensor<float, 1, true> subQuantizerNorms(
                 resources_,
                 makeTempAlloc(AllocType::QuantizerPrecomputedCodes, stream),
@@ -639,8 +639,8 @@ void IVFPQ::runPQPrecomputedCodes_(
     // These allocations within are only temporary, so release them when
     // we're done to maximize free space
     {
-        auto querySubQuantizerView = queries.view<3>(
-                {queries.getSize(0), numSubQuantizers_, dimPerSubQuantizer_});
+        idx_t querySubQuantizerViewSizes[3] = {queries.getSize(0), numSubQuantizers_, dimPerSubQuantizer_};
+        auto querySubQuantizerView = queries.view<3>(querySubQuantizerViewSizes);
         DeviceTensor<float, 3, true> queriesTransposed(
                 resources_,
                 makeTempAlloc(AllocType::Other, stream),

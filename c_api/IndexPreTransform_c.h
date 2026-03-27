@@ -27,18 +27,18 @@ FAISS_DECLARE_INDEX_DOWNCAST(IndexPreTransform)
 FAISS_DECLARE_GETTER(IndexPreTransform, FaissIndex*, index)
 FAISS_DECLARE_GETTER_SETTER(IndexPreTransform, int, own_fields)
 
-int faiss_IndexPreTransform_new(FaissIndexPreTransform** p_index);
+FAISS_C_API int faiss_IndexPreTransform_new(FaissIndexPreTransform** p_index);
 
-int faiss_IndexPreTransform_new_with(
+FAISS_C_API int faiss_IndexPreTransform_new_with(
         FaissIndexPreTransform** p_index,
         FaissIndex* index);
 
-int faiss_IndexPreTransform_new_with_transform(
+FAISS_C_API int faiss_IndexPreTransform_new_with_transform(
         FaissIndexPreTransform** p_index,
         FaissVectorTransform* ltrans,
         FaissIndex* index);
 
-int faiss_IndexPreTransform_prepend_transform(
+FAISS_C_API int faiss_IndexPreTransform_prepend_transform(
         FaissIndexPreTransform* index,
         FaissVectorTransform* ltrans);
 
