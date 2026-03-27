@@ -1,5 +1,11 @@
 # Faiss
 
+> **⚠️ This is a hacked Windows build fork**
+>
+> This repository contains modifications to enable building Faiss with CUDA GPU support and Intel MKL on Windows. The changes are not part of the official Faiss distribution.
+>
+> For Windows build instructions, see [INSTALL-win.md](INSTALL-win.md).
+
 Faiss is a library for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, up to ones that possibly do not fit in RAM. It also contains supporting code for evaluation and parameter tuning. Faiss is written in C++ with complete wrappers for Python/numpy. Some of the most useful algorithms are implemented on the GPU. It is developed primarily at Meta's [Fundamental AI Research](https://ai.facebook.com/) group.
 
 ## News
