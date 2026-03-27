@@ -48,7 +48,7 @@ FAISS_C_API int faiss_VectorTransform_train(
  * @param     x size n * d_in
  * @return    size n * d_out
  */
-float* faiss_VectorTransform_apply(
+FAISS_C_API float* faiss_VectorTransform_apply(
         const FaissVectorTransform* vt,
         idx_t n,
         const float* x);
